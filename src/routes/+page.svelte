@@ -216,7 +216,7 @@
 			>Use this section to connect with me.</Body
 		></Row>
 		<Row width="calc(100% - 100px)" justify="center" wrap="flex-wrap" padding="0 50px">
-			<Row on:click={() => {window.location.href="https://www.linkedin.com/in/daltonblake05/"}} cursor="pointer" padding="0 25px" gap="10px" align="center" width="fit-content"><Icon icon="fa-linkedin-in" size="fa-xl" color={$dark ? 'var(--darktext)' : 'var(--primary)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--primary)'}>LinkedIn</Body></Row>
+			<Row on:click={() => {window.location.href="https://www.linkedin.com/in/daltonblake05/"}} cursor="pointer" padding="0 25px" gap="10px" align="center" width="fit-content"><i style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'}; margin-left: 0" class="fa-brands fa-linkedin fa-xl"></i><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--primary)'}>LinkedIn</Body></Row>
 		</Row>
 	</Column>
 
