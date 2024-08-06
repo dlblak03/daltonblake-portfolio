@@ -456,7 +456,7 @@
 						<Card
 							shadow="rgba(0, 0, 0, 0.3) 0px 4px 12px"
 							background={$dark ? 'rgb(75,75,75)' : 'initial'}
-							width="80%"
+							width="calc(100% - 20px)"
 							maxwidth="none"
 						>
 							{#if pet.pet_type == 0}
@@ -618,7 +618,7 @@
 											{/if}
 
 											{#if pet.pet_type == 1 || pet.pet_type == 2 || pet.pet_type == 4 || pet.pet_type == 5 || pet.pet_type == 6}
-												<Row width="100%">
+												<Row margintop="25px" width="100%">
 													<Textbox
 														dark={$dark}
 														id={'petname_' + pet.petid}
@@ -642,7 +642,7 @@
 													>
 												</Row>
 											{:else if pet.pet_type == 3}
-												<Row>
+												<Row margintop="25px">
 													<Number
 														dark={$dark}
 														id={'petquantity_' + pet.petid}
