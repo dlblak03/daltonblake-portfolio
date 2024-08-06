@@ -488,59 +488,137 @@
 							{:else}
 								<Column width="100%" height="100%">
 									<Row grow="1" width="100%">
-										<Row align="center" grow="1" padding="40px 20px 40px 20px">
+										<Row align="center" rowgap="25px" grow="1" padding="40px 20px 40px 20px" wrap="wrap">
 											{#if pet.pet_type == 1}
-												<Row align="center">
+												<Row width="100%" gap="25px" align="center" justify="center" height="50px">
 													<Icon
 														icon={pet.pets_icon}
 														size="fa-xl"
                                                         color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 													/>
+													<Header color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="24px">{petTypes.find(pt => pt.id == pet.pet_type).name}</Header>
+													<div style="margin-left: auto;">
+														<Button
+													buttonType="warn"
+													on:click={() => {
+														confirmRemovePet(pet.petid);
+													}}												
+													color={$dark ? 'var(--darktext)' : 'var(--primary)'}
+													width="fit-content"
+													><Icon icon="fa-xmark-large" size="fa-lg" marginleft="5px" /></Button
+												>
+														</div>
+													
 												</Row>
 											{:else if pet.pet_type == 2}
-												<Row>
+												<Row width="100%" gap="25px" align="center" justify="center" height="50px">
 													<Icon
 														icon={pet.pets_icon}
 														size="fa-xl"
                                                         color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 													/>
+													<Header color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="24px">{petTypes.find(pt => pt.id == pet.pet_type).name}</Header>
+													<div style="margin-left: auto;">
+														<Button
+													buttonType="warn"
+													on:click={() => {
+														confirmRemovePet(pet.petid);
+													}}												
+													color={$dark ? 'var(--darktext)' : 'var(--primary)'}
+													width="fit-content"
+													><Icon icon="fa-xmark-large" size="fa-lg" marginleft="5px" /></Button
+												>
+														</div>
+													
 												</Row>
 											{:else if pet.pet_type == 3}
-												<Row>
+												<Row width="100%" gap="25px" align="center" justify="center" height="50px">
 													<Icon
 														icon={pet.pets_icon}
 														size="fa-xl"
                                                         color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 													/>
+													<Header color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="24px">{petTypes.find(pt => pt.id == pet.pet_type).name}</Header>
+													<div style="margin-left: auto;">
+														<Button
+													buttonType="warn"
+													on:click={() => {
+														confirmRemovePet(pet.petid);
+													}}												
+													color={$dark ? 'var(--darktext)' : 'var(--primary)'}
+													width="fit-content"
+													><Icon icon="fa-xmark-large" size="fa-lg" marginleft="5px" /></Button
+												>
+														</div>
+													
 												</Row>
 											{:else if pet.pet_type == 4}
-												<Row>
+												<Row width="100%" gap="25px" align="center" justify="center" height="50px">
 													<Icon
 														icon={pet.pets_icon}
 														size="fa-xl"
                                                         color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 													/>
+													<Header color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="24px">{petTypes.find(pt => pt.id == pet.pet_type).name}</Header>
+													<div style="margin-left: auto;">
+														<Button
+													buttonType="warn"
+													on:click={() => {
+														confirmRemovePet(pet.petid);
+													}}												
+													color={$dark ? 'var(--darktext)' : 'var(--primary)'}
+													width="fit-content"
+													><Icon icon="fa-xmark-large" size="fa-lg" marginleft="5px" /></Button
+												>
+														</div>
+													
 												</Row>
 											{:else if pet.pet_type == 5}
-												<Row>
+												<Row width="100%" gap="25px" align="center" justify="center" height="50px">
 													<Icon
 														icon={pet.pets_icon}
 														size="fa-xl"
                                                         color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 													/>
+													<Header color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="24px">{petTypes.find(pt => pt.id == pet.pet_type).name}</Header>
+													<div style="margin-left: auto;">
+														<Button
+													buttonType="warn"
+													on:click={() => {
+														confirmRemovePet(pet.petid);
+													}}												
+													color={$dark ? 'var(--darktext)' : 'var(--primary)'}
+													width="fit-content"
+													><Icon icon="fa-xmark-large" size="fa-lg" marginleft="5px" /></Button
+												>
+														</div>
+													
 												</Row>
 											{:else if pet.pet_type == 6}
-												<Row>
+												<Row width="100%" gap="25px" align="center" justify="center" height="50px">
 													<Icon
 														icon={pet.pets_icon}
 														size="fa-xl"
                                                         color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 													/>
+													<Header color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="24px">{petTypes.find(pt => pt.id == pet.pet_type).name}</Header>
+													<div style="margin-left: auto;">
+														<Button
+													buttonType="warn"
+													on:click={() => {
+														confirmRemovePet(pet.petid);
+													}}												
+													color={$dark ? 'var(--darktext)' : 'var(--primary)'}
+													width="fit-content"
+													><Icon icon="fa-xmark-large" size="fa-lg" marginleft="5px" /></Button
+												>
+														</div>
+													
 												</Row>
 											{/if}
 
 											{#if pet.pet_type == 1 || pet.pet_type == 2 || pet.pet_type == 4 || pet.pet_type == 5 || pet.pet_type == 6}
-												<Row>
+												<Row width="100%">
 													<Textbox
 														dark={$dark}
 														id={'petname_' + pet.petid}
@@ -588,18 +666,6 @@
 													>
 												</Row>
 											{/if}
-
-											<Row height="100%" align="center" justify="center">
-												<Button
-													buttonType="warn"
-													on:click={() => {
-														confirmRemovePet(pet.petid);
-													}}
-													color={$dark ? 'var(--darktext)' : 'var(--primary)'}
-													width="fit-content"
-													><Icon icon="fa-xmark-large" size="fa-lg" marginleft="5px" /></Button
-												>
-											</Row>
 										</Row>
 									</Row>
 
@@ -660,8 +726,8 @@
 														{/if}
 													</Row>
 													{#if pet.pet_type == 1 || pet.pet_type == 2 || pet.pet_type == 4 || pet.pet_type == 5 || pet.pet_type == 6}
-														<Column padding="40px 20px" gap="40px">
-															<Row align="center">
+														<Column align="center" justify="center" width="calc(100% - 40px)" padding="40px 20px" gap="40px">
+															<Row width="100%" justify="center" align="center" wrap="wrap" rowgap="35px">
 																{#if pet.pet_gender == 'Male'}
 																	<Row
 																		padding="0 10px"
@@ -691,7 +757,7 @@
 																		/>
 																	</Row>
 																{/if}
-																<Date
+																<Date																	
 																	dark={$dark}
 																	id={'petdob_' + pet.petid}
 																	name={'petdob_' + pet.petid}
@@ -702,6 +768,7 @@
 																	}}>Pet dob</Date
 																>
 																<Textbox
+																																
 																	dark={$dark}
 																	id={'petcolor_' + pet.petid}
 																	name={'petcolor_' + pet.petid}
@@ -737,9 +804,9 @@
 															{/if}
 														</Column>
 													{/if}
-													<Column padding="40px 20px" gap="40px">
+													<Column padding="40px 20px" gap="40px" width="calc(100% - 40px)">
 														{#if pet.pet_type == 1 || pet.pet_type == 3}
-															<Row width="100%" align="center" gap="20px">
+															<Row width="100%" align="center" gap="20px" rowgap="35px" wrap="wrap">
 																<Icon
 																	icon="fa-utensils"
                                                                     size="fa-xl"
@@ -762,7 +829,7 @@
 																	}}>Feed</Time
 																>
 															</Row>
-															<Row width="100%" align="center" gap="20px">
+															<Row width="100%" align="center" gap="20px" rowgap="35px" wrap="wrap">
 																<Icon
 																	icon="fa-utensils"
                                                                     size="fa-xl"
@@ -787,11 +854,10 @@
 															</Row>
 														{:else if pet.pet_type == 2 || pet.pet_type == 4 || pet.pet_type == 5 || pet.pet_type == 6}
 															<Row width="100%" align="center" gap="20px">
-																<IconImage
-																	name="dinner"
-																	width="50px"
-																	height="50px"
-																	background="transparent"
+																<Icon
+																	icon="fa-utensils"
+                                                                    size="fa-xl"
+                                                                    color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 																/>
 																<Header color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 																	>Feeding time</Header
@@ -812,7 +878,7 @@
 															</Row>
 														{/if}
 
-														<Row width="100%" align="center">
+														<Row width="100%" align="center" justify="center" rowgap="25px" wrap="wrap">
 															<Textbox
 																dark={$dark}
 																id={'petfeedfood_' + pet.petid}
@@ -861,7 +927,7 @@
 														</Row>
 													</Column>
 													{#if pet.pet_type == 3 || pet.pet_type == 4 || pet.pet_type == 5 || pet.pet_type == 6}
-														<Column padding="40px 20px" gap="40px" align="center">
+														<Column padding="40px 0px" gap="40px" align="center">
 															{#if pet.pets_habitats.length == 0}
 																<Row on:click={() => {
 																	displayAddHabitatLink = '1';
@@ -884,7 +950,7 @@
 															
 														</Column>
 													{/if}
-													<Column marginleft="auto" padding="40px 20px" gap="20px">
+													<Column marginleft="auto" padding="40px 20px" gap="20px" width="calc(100% - 40px)">
 														<Row width="100%" justify="flex-end">
 															<Button
 																buttonType="primary"

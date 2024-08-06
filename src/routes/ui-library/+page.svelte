@@ -6,8 +6,12 @@
 	import Row from '$lib/Row.svelte';
 	import Body from '$lib/Text/Body.svelte';
 	import Card from '$lib/v2/Containers/card.svelte';
+	import { text } from '@sveltejs/kit';
 
 	import { dark } from '../ui_store';
+	import Header from '$lib/Text/Header.svelte';
+	import ButtonPrimary from '$lib/v2/Buttons/button-primary.svelte';
+	import ButtonHover from '$lib/v2/Buttons/button-hover.svelte';
 
     var buttonsActive = false
     var containersActive = false
@@ -209,8 +213,28 @@
         </Row>
     </Row>
 
-    <Column>
-        
+    <Column height="25vh" margintop="50px" align="center" width="100%">
+        {#if buttonsActive}
+			<Row gap="25px" wrap="wrap">
+				<Button color={$dark ? 'var(--darktext)' : 'var(--primary)'}>Link Button</Button>
+				<Button color={$dark ? 'var(--darktext)' : 'var(--primary)'} buttonType="success">Success Button</Button>
+				<Button color={$dark ? 'var(--darktext)' : 'var(--primary)'} buttonType="warn">Warn Button</Button>
+				<ButtonPrimary>Solid Button</ButtonPrimary>
+				{#if !$dark} 
+					<ButtonHover>Hover Button</ButtonHover>
+				{/if}
+			</Row>
+		{:else if containersActive}
+
+		{:else if graphicsActive}
+
+		{:else if inputsActive}
+
+		{:else if shapesActive}
+
+		{:else if textActive}
+
+		{/if}
     </Column>
 
 	<Row margintop="25px" width="100%" height="100%" align="center" justify="end">

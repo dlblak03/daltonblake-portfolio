@@ -38,7 +38,7 @@
 
 <style type="text/css">
     .open-collapsable {
-        max-height: 1000px !important;
+        max-height: 5000px !important;
         overflow: visible !important;
     }
 </style>

@@ -28,6 +28,7 @@
 		-o-transition: all 150ms;
 		transition: all 150ms;
         flex-grow: 1;
+		width: 100%;
 	}
 
 	.textbox label {
