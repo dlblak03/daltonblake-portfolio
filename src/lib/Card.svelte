@@ -14,10 +14,11 @@
     export let maxwidth = "default";
     export let dark = false;
     export let shadow = "default"
+    export let cursor = "default"
     export let borderradius = "5px"
 </script>
 
-<div class="card" style="border-radius: {borderradius}; box-shadow: {shadow}; display: flex; flex-direction: column; max-width: {maxwidth}; background: {dark ? 'rgb(40,40,40)' : background}; gap: {gap}; align-items: {align}; justify-content: {justify}; height: {height}; width: {width}; flex-grow: {grow}; padding: {padding}; margin-left: {marginleft}; margin-right: {marginright}; margin-top: {margintop}; margin-bottom: {marginbottom};">
+<div class="card" style="cursor: {cursor}; border-radius: {borderradius}; box-shadow: {shadow}; display: flex; flex-direction: column; max-width: {maxwidth}; background: {dark ? 'rgb(40,40,40)' : background}; gap: {gap}; align-items: {align}; justify-content: {justify}; height: {height}; width: {width}; flex-grow: {grow}; padding: {padding}; margin-left: {marginleft}; margin-right: {marginright}; margin-top: {margintop}; margin-bottom: {marginbottom};">
 	<slot />
 </div>
 

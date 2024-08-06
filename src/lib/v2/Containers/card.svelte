@@ -25,6 +25,7 @@
     export let border = "none";
     export let borderradius = "5px";
     export let boxshadow = "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px";
+    export let cursor = "default"
 
     export let overflowx = "hidden";
     export let overflowy = "hidden";
@@ -34,7 +35,7 @@
     export let transition = "all 300ms";
 </script>
 
-<div style="
+<div on:click style="
     display: {display};
     flex-direction: {direction};
     align-items: {alignitems};
@@ -59,6 +60,7 @@
     border: {border};
     border-radius: {borderradius};
     box-shadow: {boxshadow}; 
+    cursor: {cursor};
 
     overflow-x: {overflowx};
     overflow-y: {overflowy};

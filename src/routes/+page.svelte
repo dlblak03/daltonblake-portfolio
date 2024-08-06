@@ -2,8 +2,10 @@
 	import Button from '$lib/Button.svelte';
 	import Column from '$lib/Column.svelte';
 	import Icon from '$lib/Icon.svelte';
+	import Image from '$lib/Image.svelte';
 	import Row from '$lib/Row.svelte';
 	import Body from '$lib/Text/Body.svelte';
+	import Card from '$lib/v2/Containers/card.svelte';
 
 	import { dark } from './ui_store.js';
 
@@ -170,7 +172,7 @@
 		<Row justify="center">
 			<Body
 				align="center"
-				spacing="0.75rem"
+				spacing="0.65rem"
 				size="32px"
 				color={$dark ? 'var(--darktext)' : 'var(--primary)'}>LIFE WITH DALTON</Body
 			>
@@ -180,7 +182,7 @@
 				style="    font-size: 14px;
 			height: auto;
 			width: auto;
-			color: var(--primary);
+			color: {$dark ? 'var(--darktext)' : 'var(--primary)'};
 			letter-spacing: 0.75rem;
 			transition: all 300ms ease 0s;
 			font-weight: initial;
@@ -188,6 +190,33 @@
 			>
 				INNOVATIVE, TRANSFORMATIVE CHANGE
 			</h1>
+		</Row>
+	</Column>
+
+	<div id="projects"></div>
+	<Column width="100%" height="100%" padding="50px 0" gap="25px">
+		<Row width="100%" justify="center" align="center"><Body align="center" color={$dark ? 'var(--darktext)' : 'var(--primary)'}
+			>Use this section to browse through my completed projects and work.</Body
+		></Row>
+		<Row width="calc(100% - 100px)" wrap="flex-wrap" padding="0 50px">
+			<Card cursor="pointer" on:click={() => { window.location.href='/pet-manager'}} dark={$dark} direction="column" maxwidth="250px">
+				{#if $dark}
+					<Image src="/pet_manager_dark.png"></Image>
+				{:else}
+					<Image src="/pet_manager_light.png"></Image>
+				{/if}
+				<Row cursor="pointer" justify="center" padding="0 50px"><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--primary)'}>Pet Manager</Body></Row>
+			</Card>
+		</Row>
+	</Column>
+
+	<div id="contact"></div>
+	<Column width="100%" height="100%" padding="50px 0" gap="25px">
+		<Row width="100%" justify="center" align="center"><Body align="center" color={$dark ? 'var(--darktext)' : 'var(--primary)'}
+			>Use this section to connect with me.</Body
+		></Row>
+		<Row width="calc(100% - 100px)" justify="center" wrap="flex-wrap" padding="0 50px">
+			<Row on:click={() => {window.location.href="https://www.linkedin.com/in/daltonblake05/"}} cursor="pointer" padding="0 25px" gap="10px" align="center" width="fit-content"><Icon icon="fa-linkedin-in" size="fa-xl" color={$dark ? 'var(--darktext)' : 'var(--primary)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--primary)'}>LinkedIn</Body></Row>
 		</Row>
 	</Column>
 

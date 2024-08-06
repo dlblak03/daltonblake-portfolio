@@ -9,6 +9,8 @@
     export let titleiconimage = false;
     export let titleiconimageval = '';
 
+    export let wrap = 'wrap';
+
     var openCollapsable = false;
 </script>
 
@@ -29,7 +31,7 @@
         </div>
     </div>
 
-    <div class={openCollapsable ? "open-collapsable" : ""} style="display: flex; flex-direction: column; max-height: 0; overflow: hidden; transition: all 300ms;">
+    <div class={openCollapsable ? "open-collapsable" : ""} style="flex-wrap: {wrap}; display: flex; flex-direction: column; max-height: 0; overflow: hidden; transition: all 300ms;">
         <slot></slot>
     </div>
 </div>
