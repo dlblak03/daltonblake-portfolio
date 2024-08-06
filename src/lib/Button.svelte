@@ -7,9 +7,10 @@
 
 	export let disabled = false;
 	export let inverse = false;
+	export let active = false;
 </script>
 
-<button style="color: {color}; width: {width}" class={buttonType} class:disabled={disabled} class:inverse={inverse} on:click>
+<button style="color: {color}; width: {width}" class={buttonType + ' ' + (active ? 'active': '')} class:disabled={disabled} class:inverse={inverse} on:click>
 	<slot />
 </button>
 
@@ -37,6 +38,12 @@
 	}
 
     .primary:hover {
+		color: var(--primary);
+        border-color: var(--primary);
+        padding: 0 20px;
+	}
+
+	.active {
 		color: var(--primary);
         border-color: var(--primary);
         padding: 0 20px;

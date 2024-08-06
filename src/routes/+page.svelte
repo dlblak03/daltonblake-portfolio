@@ -165,14 +165,14 @@
 
 	<Column height="100vh" grow="1" align="center" gap="20px" width="100%">
 		<Row justify="center" margintop="20vh">
-			<Body align="center" spacing="0.75rem" color={$dark ? 'var(--darktext)' : 'var(--primary)'}
+			<Body align="center" spacing="0.25rem" color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 				>EXPERIENCE</Body
 			>
 		</Row>
 		<Row justify="center">
 			<Body
 				align="center"
-				spacing="0.65rem"
+				spacing="0.5rem"
 				size="32px"
 				color={$dark ? 'var(--darktext)' : 'var(--primary)'}>LIFE WITH DALTON</Body
 			>
@@ -183,10 +183,11 @@
 			height: auto;
 			width: auto;
 			color: {$dark ? 'var(--darktext)' : 'var(--primary)'};
-			letter-spacing: 0.75rem;
+			letter-spacing: 0.25rem;
 			transition: all 300ms ease 0s;
 			font-weight: initial;
-			text-align: center;"
+			text-align: center;
+			line-height: 22px;"
 			>
 				INNOVATIVE, TRANSFORMATIVE CHANGE
 			</h1>
@@ -198,14 +199,22 @@
 		<Row width="100%" justify="center" align="center"><Body align="center" color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 			>Use this section to browse through my completed projects and work.</Body
 		></Row>
-		<Row width="calc(100% - 100px)" wrap="flex-wrap" padding="0 50px">
-			<Card cursor="pointer" on:click={() => { window.location.href='/pet-manager'}} dark={$dark} direction="column" maxwidth="250px">
+		<Row width="calc(100% - 100px)" wrap="wrap" padding="0 50px" rowgap="25px" gap="25px" justify="center">
+			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/pet-manager'}} dark={$dark} direction="column">
 				{#if $dark}
 					<Image src="/pet_manager_dark.png"></Image>
 				{:else}
 					<Image src="/pet_manager_light.png"></Image>
 				{/if}
-				<Row cursor="pointer" justify="center" padding="0 50px"><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--primary)'}>Pet Manager</Body></Row>
+				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-paw" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>Pet Manager</Body></Row>
+			</Card>
+			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/ui-library'}} dark={$dark} direction="column">
+				{#if $dark}
+					<Image src="/component_library.png"></Image>
+				{:else}
+					<Image src="/component_library.png"></Image>
+				{/if}
+				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-code" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>UI Library</Body></Row>
 			</Card>
 		</Row>
 	</Column>
@@ -217,10 +226,11 @@
 		></Row>
 		<Row width="calc(100% - 100px)" justify="center" wrap="flex-wrap" padding="0 50px">
 			<Row on:click={() => {window.location.href="https://www.linkedin.com/in/daltonblake05/"}} cursor="pointer" padding="0 25px" gap="10px" align="center" width="fit-content"><i style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'}; margin-left: 0" class="fa-brands fa-linkedin fa-xl"></i><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--primary)'}>LinkedIn</Body></Row>
+			<Row on:click={() => {window.location.href="https://github.com/dlblak03"}} cursor="pointer" padding="0 25px" gap="10px" align="center" width="fit-content"><i style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'}; margin-left: 0" class="fa-brands fa-github fa-xl"></i><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--primary)'}>Github</Body></Row>
 		</Row>
 	</Column>
 
-	<Row width="100%" height="100%" align="center" justify="end">
+	<Row margintop="25px" width="100%" height="100%" align="center" justify="end">
 		<Column width="100%">
 			<div
 				style="background: {$dark
@@ -264,7 +274,7 @@
 		</Column>
 	</Row>
 
-	<Row align="center" justify="center" gap="20px" width="100%" wrap="wrap">
+	<Row align="center" margintop="15px" justify="center" gap="20px" width="100%" wrap="wrap">
 		<Column align="center">
 			<Row justify="center" padding="0 0 20px 0">
 				<!-- svelte-ignore a11y-missing-attribute -->

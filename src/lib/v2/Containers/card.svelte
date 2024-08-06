@@ -17,6 +17,7 @@
     export let width = "fit-content";
     export let minwidth = "50px";
     export let maxwidth = "fit-content";
+    export let grow = "0";
 
     export let padding = "0 0 0 0";
     export let margin = "0 0 0 0";
@@ -52,6 +53,7 @@
     width: {width};
     min-width: {minwidth};
     max-width: {maxwidth};
+    flex-grow: {grow};
 
     padding: {padding};
     margin: {margin};

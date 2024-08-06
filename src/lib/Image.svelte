@@ -10,6 +10,6 @@
     export let id = "";
 </script>
 
-<div style="width: {width}; height: {height}; border: {border}; border-radius: {borderradius}; background: {background}; border-left: {bordersides}; border-right: {bordersides}; display: flex;">
+<div style="contain: strict; flex-grow: 1; width: {width}; height: {height}; border: {border}; border-radius: {borderradius}; background: {background}; border-left: {bordersides}; border-right: {bordersides}; display: flex;">
     <img id={id} src={src} alt={alt} style="width: 100%; height: 100%; border-radius: {borderradius};">
 </div>

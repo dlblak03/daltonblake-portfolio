@@ -22,24 +22,25 @@
 
 	import type { PageData } from './$types';
 	import { onMount } from 'svelte';
+	import P from '$lib/v2/Text/p.svelte';
 
 	export let data: PageData;
 
 	var pets: any[] = [{
                 petid: 1000,
-                pet_name: 'Nyla',
-                pet_description: 'Anatolian with greyhound',
+                pet_name: 'Dog Name',
+                pet_description: 'Dog Breed',
                 pet_quantity: 1,
                 pet_photo: {
                     length: 0
                 },
-                pet_dob: '2020',
-                pet_color: 'Grey with stripes',
-                pet_microchip_number: '05050505',
+                pet_dob: '2020-01-01',
+                pet_color: 'Golden',
+                pet_microchip_number: '000000000',
                 pet_registration: 'Registered',
                 pet_feed_one: '',
                 pet_feed_two: '',
-                pet_feeding_food: '',
+                pet_feeding_food: 'Science Diet',
                 pet_food_link: '',
                 pet_type: 1,
                 pets_icon: 'fa-dog'
@@ -51,32 +52,32 @@
 		{
 			id: 1,
 			name: 'Dog',
-			icon: 'pets'
+			icon: 'fa-dog'
 		},
 		{
 			id: 2,
 			name: 'Cat',
-			icon: 'cat'
+			icon: 'fa-cat'
 		},
 		{
 			id: 3,
 			name: 'Fish',
-			icon: 'fish'
+			icon: 'fa-fish'
 		},
 		{
 			id: 4,
 			name: 'Small Mammal',
-			icon: 'mammal'
+			icon: 'fa-mouse-field'
 		},
 		{
 			id: 5,
 			name: 'Bird',
-			icon: 'bird'
+			icon: 'fa-bird'
 		},
 		{
 			id: 6,
 			name: 'Reptile',
-			icon: 'reptile'
+			icon: 'fa-snake'
 		}
 	];
 
@@ -95,6 +96,7 @@
 	var messageVar = '';
 
 	var removepetid = '';
+	var petidcounter = 1
 
 	onMount(async () => {
 		await setDocumentsAccount();
@@ -139,30 +141,34 @@
 	const addNewPet = async () => {
 		pets.unshift(
             {
-                petid: 1000,
-                pet_name: 'Nyla',
-                pet_description: 'Anatolian with greyhound',
+                petid: (1000 + petidcounter),
+                pet_name: '',
+                pet_description: '',
                 pet_quantity: 1,
                 pet_photo: {
                     length: 0
                 },
-                pet_dob: '2020',
-                pet_color: 'Grey with stripes',
-                pet_microchip_number: '05050505',
-                pet_registration: 'Registered',
+                pet_dob: '',
+                pet_color: '',
+                pet_microchip_number: '',
+                pet_registration: 'Not Registered',
                 pet_feed_one: '',
                 pet_feed_two: '',
                 pet_feeding_food: '',
                 pet_food_link: '',
-                pet_type: 1,
-                pets_icon: 'fa-dog'
+                pet_type: 0,
+                pets_icon: ''
             }
         );
         pets = [...pets];
+		petidcounter++;
 	};
 
 	const updatePetType = async (petid: any, pettypeid: any) => {
-		
+		let updateIndex = pets.findIndex((p) => p.petid == petid);
+		pets[updateIndex].pet_type = pettypeid;
+
+		await updateLocalPet(petid, pets[updateIndex])
 	};
 
 	const updatePetName = async (petid: any, petname: any) => {
@@ -188,7 +194,11 @@
 	};
 
 	const removePet = async (petid: any) => {
-		
+		pets = pets.filter((p) => p.petid != petid);
+		reactiveUI();
+		displayVar = '0';
+		backgroundVar = 'var(--warn)';
+		messageVar = '';
 	};
 
 	const uploadPhoto = async (event: any, petid: any) => {
@@ -274,6 +284,15 @@
 		window.location.href = '/';
 	};
 </script>
+
+<svelte:head>
+	<title>Dalton Blake | Pet Manager</title>
+
+	<meta
+		name="description"
+		content=""
+	/>
+</svelte:head>
 
 <Column
 	background={$dark ? 'rgb(20,20,20)' : 'rgb(250,250,250)'}
@@ -411,9 +430,9 @@
     </div>
 </Row>
 
-<Column borderradius="5px" background="var(--primary)" align="center" width="100%" zindex="2" padding="0 0 10px 0">
+<Column borderradius="5px" background="var(--primary)" align="center" width="100%" zindex="1" padding="0 0 10px 0">
     <Body height="0px" align="center" size="24px" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}
-		>Pet Manager</Body
+		><Icon icon="fa-paw" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon>&nbsp;&nbsp;Pet Manager</Body
 	>
 	<Body align="center" size="18px" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>UI for managing pets.</Body>
 </Column>
@@ -441,8 +460,8 @@
 							maxwidth="none"
 						>
 							{#if pet.pet_type == 0}
-								<Row width="100%" height="100%" align="center">
-									<Row padding="0 30px" height="100%" align="center">
+								<Row width="100%" height="100%" align="start" wrap="wrap">
+									<Row padding="25px 25px 0 25px" height="100%" align="center">
 										<Body
 											weight="600"
 											spacing="0.2rem"
@@ -450,19 +469,17 @@
 										>
 									</Row>
 
-									<Row grow="1" gap="20px" padding="20px 0">
+									<Row grow="1" gap="10px" padding="20px 20px" wrap="wrap" align="start">
 										{#each petTypes as petType}
 											<Button
+											width="fit-content"
 												on:click={() => {
 													updatePetType(pet.petid, petType.id);
 												}}
-												color={$dark ? 'var(--darktext)' : 'var(--primary)'}><IconImage
-												cursor="default"
-												border={$dark ? 'none' : 'none'}
-												background={$dark ? 'transparent' : 'transparent'}
-												name={petType.icon}
-												width="25px"
-												height="25px"
+												color={$dark ? 'var(--darktext)' : 'var(--primary)'}><Icon
+												color={$dark ? 'var(--darktext)' : 'var(--primary)'}
+												icon="{petType.icon}"
+												size="fa-lg"
 											/>{petType.name}</Button
 											>
 										{/each}
@@ -482,57 +499,42 @@
 												</Row>
 											{:else if pet.pet_type == 2}
 												<Row>
-													<IconImage
-														cursor="default"
-														border={$dark ? 'none' : 'none'}
-														background={$dark ? 'transparent' : 'transparent'}
-														name={pet.pets_icon}
-														width="50px"
-														height="50px"
+													<Icon
+														icon={pet.pets_icon}
+														size="fa-xl"
+                                                        color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 													/>
 												</Row>
 											{:else if pet.pet_type == 3}
 												<Row>
-													<IconImage
-														cursor="default"
-														border={$dark ? 'none' : 'none'}
-														background={$dark ? 'transparent' : 'transparent'}
-														name={pet.pets_icon}
-														width="50px"
-														height="50px"
+													<Icon
+														icon={pet.pets_icon}
+														size="fa-xl"
+                                                        color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 													/>
 												</Row>
 											{:else if pet.pet_type == 4}
 												<Row>
-													<IconImage
-														cursor="default"
-														border={$dark ? 'none' : 'none'}
-														background={$dark ? 'transparent' : 'transparent'}
-														name={pet.pets_icon}
-														width="50px"
-														height="50px"
+													<Icon
+														icon={pet.pets_icon}
+														size="fa-xl"
+                                                        color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 													/>
 												</Row>
 											{:else if pet.pet_type == 5}
 												<Row>
-													<IconImage
-														cursor="default"
-														border={$dark ? 'none' : 'none'}
-														background={$dark ? 'transparent' : 'transparent'}
-														name={pet.pets_icon}
-														width="50px"
-														height="50px"
+													<Icon
+														icon={pet.pets_icon}
+														size="fa-xl"
+                                                        color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 													/>
 												</Row>
 											{:else if pet.pet_type == 6}
 												<Row>
-													<IconImage
-														cursor="default"
-														border={$dark ? 'none' : 'none'}
-														background={$dark ? 'transparent' : 'transparent'}
-														name={pet.pets_icon}
-														width="50px"
-														height="50px"
+													<Icon
+														icon={pet.pets_icon}
+														size="fa-xl"
+                                                        color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 													/>
 												</Row>
 											{/if}
@@ -933,58 +935,60 @@
 	</Column>
 </Row>
 
-<Row width="100%" height="100%" align="center" justify="end">
-    <Column width="100%">
-        <div
-            style="background: {$dark
-                ? 'var(--darktext)'
-                : 'var(--primary)'}; height: 1px; width: 100%;"
-        />
+<Row margintop="25px" width="100%" height="100%" align="center" justify="end">
+	<Column width="100%">
+		<div
+			style="background: {$dark
+				? 'var(--darktext)'
+				: 'var(--primary)'}; height: 1px; width: 100%;"
+		/>
 
-        <Row width="100%" margintop="6px">
-            <Row padding="0 50px">
-                <div
-                    style="background: {$dark
-                        ? 'var(--darktext)'
-                        : 'var(--primary)'}; height: 1px; width: 20px; transform: rotate(-45deg);"
-                />
-            </Row>
-            <Row padding="0 50px" marginleft="auto">
-                <div
-                    style="background: {$dark
-                        ? 'var(--darktext)'
-                        : 'var(--primary)'}; height: 1px; width: 20px; transform: rotate(45deg);"
-                />
-            </Row>
-        </Row>
+		<Row width="100%" margintop="6px">
+			<Row padding="0 50px">
+				<div
+					style="background: {$dark
+						? 'var(--darktext)'
+						: 'var(--primary)'}; height: 1px; width: 20px; transform: rotate(-45deg);"
+				/>
+			</Row>
+			<Row padding="0 50px" marginleft="auto">
+				<div
+					style="background: {$dark
+						? 'var(--darktext)'
+						: 'var(--primary)'}; height: 1px; width: 20px; transform: rotate(45deg);"
+				/>
+			</Row>
+		</Row>
 
-        <Row width="100%" margintop="6px">
-            <Row padding="0 25px">
-                <div
-                    style="background: {$dark
-                        ? 'var(--darktext)'
-                        : 'var(--primary)'}; height: 1px; width: 25vw;"
-                />
-            </Row>
-            <Row padding="0 25px" marginleft="auto">
-                <div
-                    style="background: {$dark
-                        ? 'var(--darktext)'
-                        : 'var(--primary)'}; height: 1px; width: 25vw;"
-                />
-            </Row>
-        </Row>
-    </Column>
+		<Row width="100%" margintop="6px">
+			<Row padding="0 25px">
+				<div
+					style="background: {$dark
+						? 'var(--darktext)'
+						: 'var(--primary)'}; height: 1px; width: 25vw;"
+				/>
+			</Row>
+			<Row padding="0 25px" marginleft="auto">
+				<div
+					style="background: {$dark
+						? 'var(--darktext)'
+						: 'var(--primary)'}; height: 1px; width: 25vw;"
+				/>
+			</Row>
+		</Row>
+	</Column>
 </Row>
 
-<Row align="center" justify="center" gap="20px" width="100%" wrap="wrap">
-    <Column align="center">
-        <Row justify="center" padding="0 0 20px 0">
-            <!-- svelte-ignore a11y-missing-attribute -->
-            <Body color={$dark ? 'var(--darktext)' : 'var(--primary)'}>© 2022-2024 Development by Dalton Blake</Body>
-        </Row>
-    </Column>
+<Row align="center" margintop="15px" justify="center" gap="20px" width="100%" wrap="wrap">
+	<Column align="center">
+		<Row justify="center" padding="0 0 20px 0">
+			<!-- svelte-ignore a11y-missing-attribute -->
+			<Body color={$dark ? 'var(--darktext)' : 'var(--primary)'}>© 2022-2024 Development by Dalton Blake</Body>
+		</Row>
+	</Column>
 </Row>
+
+
 
 </Column>
 

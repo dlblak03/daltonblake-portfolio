@@ -25,6 +25,6 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div on:click id="{id}" style="min-height: {minheight}; overflow-x: {overflowx}; overflow-y: {overflowy}; z-index: {zindex}; display: flex; border-radius: {borderradius}; border: {border}; cursor: {cursor}; position: relative; background: {background}; gap: {gap}; align-items: {align}; justify-content: {justify}; height: {height}; width: {width}; flex-grow: {grow}; padding: {padding}; margin-left: {marginleft}; margin-right: {marginright}; margin-top: {margintop}; margin-bottom: {marginbottom}; flex-wrap: {wrap}; row-gap: {rowgap};">
+<div on:click id="{id}" style="min-height: {minheight}; overflow-x: {overflowx}; overflow-y: {overflowy}; z-index: {zindex}; display: flex; border-radius: {borderradius}; border: {border}; cursor: {cursor}; position: relative; background: {background}; gap: {gap}; row-gap: {gap}; column-gap: {gap}; align-items: {align}; justify-content: {justify}; height: {height}; width: {width}; flex-grow: {grow}; padding: {padding}; margin-left: {marginleft}; margin-right: {marginright}; margin-top: {margintop}; margin-bottom: {marginbottom}; flex-wrap: {wrap}; row-gap: {rowgap};">
 	<slot />
 </div>

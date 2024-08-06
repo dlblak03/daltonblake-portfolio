@@ -8,7 +8,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div on:click class="{scale == '1' ? 'autoshrink open' : 'closed'}" style="height: 100px; position: absolute; width: 100%; background: {background}; bottom: 0; align-items: center; justify-content: center; display: flex; transition: all 300ms; z-index: 100; cursor: pointer; padding-bottom: 20px;">
+<div on:click class="{scale == '1' ? 'open' : 'closed'}" style="position: fixed; width: 100%; background: {background}; bottom: 0; left: 0; align-items: center; justify-content: center; display: flex; transition: all 300ms; z-index: 100; cursor: pointer; padding-bottom: 10px; padding-top: 10px;">
     <Header color="white">{message}</Header>
     <slot></slot>
 </div>
