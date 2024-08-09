@@ -197,7 +197,7 @@
 	<div id="projects"></div>
 	<Column width="100%" height="100%" padding="50px 0" gap="25px">
 		<Row width="100%" justify="center" align="center"><Body align="center" color={$dark ? 'var(--darktext)' : 'var(--primary)'}
-			>Use this section to browse through my completed projects and work.</Body
+			>Use this section to browse through my projects and work.</Body
 		></Row>
 		<Row width="calc(100% - 100px)" wrap="wrap" padding="0 50px" rowgap="25px" gap="25px" justify="center">
 			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/pet-manager'}} dark={$dark} direction="column">
@@ -227,6 +227,9 @@
 		<Row width="calc(100% - 100px)" justify="center" wrap="flex-wrap" padding="0 50px">
 			<Row on:click={() => {window.location.href="https://www.linkedin.com/in/daltonblake05/"}} cursor="pointer" padding="0 25px" gap="10px" align="center" width="fit-content"><i style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'}; margin-left: 0" class="fa-brands fa-linkedin fa-xl"></i><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--primary)'}>LinkedIn</Body></Row>
 			<Row on:click={() => {window.location.href="https://github.com/dlblak03"}} cursor="pointer" padding="0 25px" gap="10px" align="center" width="fit-content"><i style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'}; margin-left: 0" class="fa-brands fa-github fa-xl"></i><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--primary)'}>Github</Body></Row>
+		</Row>
+		<Row justify="center" width="100%">
+			<iframe src='https://www.juicer.io/api/feeds/daltonblake05/iframe' frameborder='0' width='1000' height='1000' style='display:block;margin:0 auto;'></iframe>
 		</Row>
 	</Column>
 
