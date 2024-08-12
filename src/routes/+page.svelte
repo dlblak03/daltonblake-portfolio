@@ -199,6 +199,7 @@
 		<Row width="100%" justify="center" align="center"><Body align="center" color={$dark ? 'var(--darktext)' : 'var(--primary)'}
 			>Use this section to browse through my projects and work.</Body
 		></Row>
+		<Row width="calc(100% - 100px)" wrap="wrap" margintop="-25px" padding="0 50px" justify="center"><Body color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="10px">IP = In-Progress; C = Completed</Body></Row>
 		<Row width="calc(100% - 100px)" wrap="wrap" padding="0 50px" rowgap="25px" gap="25px" justify="center">
 			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/pet-manager'}} dark={$dark} direction="column">
 				{#if $dark}
@@ -206,7 +207,7 @@
 				{:else}
 					<Image src="/pet_manager_light.png"></Image>
 				{/if}
-				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-paw" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>Pet Manager</Body></Row>
+				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-paw" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>Pet Manager - IP</Body></Row>
 			</Card>
 			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/ui-library'}} dark={$dark} direction="column">
 				{#if $dark}
@@ -214,7 +215,19 @@
 				{:else}
 					<Image src="/component_library.png"></Image>
 				{/if}
-				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-code" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>UI Library</Body></Row>
+				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-code" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>UI Library - IP</Body></Row>
+			</Card>
+			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/financial-tracker'}} dark={$dark} direction="column">
+				{#if $dark}
+					<Row cursor="pointer" grow="1" width="100%" align="center" justify="center">
+						<Icon icon="fa-piggy-bank" size="fa-xl" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon>
+					</Row>
+				{:else}
+					<Row cursor="pointer" grow="1" width="100%" align="center" justify="center">
+						<Icon icon="fa-piggy-bank" size="fa-xl" color={$dark ? 'var(--primary)' : 'var(--primary)'}></Icon>
+					</Row>
+				{/if}
+				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-piggy-bank" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>Financial Tracker - IP</Body></Row>
 			</Card>
 		</Row>
 	</Column>

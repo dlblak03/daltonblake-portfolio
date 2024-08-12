@@ -454,8 +454,9 @@
 				{#each pets as pet}
 					<Row width="100%" align="center" justify="center">
 						<Card
+							dark={$dark}
 							shadow="rgba(0, 0, 0, 0.3) 0px 4px 12px"
-							background={$dark ? 'rgb(75,75,75)' : 'initial'}
+							background={$dark ? 'rgb(75,75,75)' : 'white'}
 							width="calc(100% - 20px)"
 							maxwidth="none"
 						>
