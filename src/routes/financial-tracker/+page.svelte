@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Column from '$lib/Column.svelte';
-    import ColumnTwo from '$lib/v2/Containers/Column.svelte';
+    import ColumnTwo from '$lib/v2/Containers/columntwo.svelte';
 	import Row from '$lib/Row.svelte';
 
-    import Card from '$lib/v2/Containers/Card.svelte';
+    import Card from '$lib/v2/Containers/cardtwo.svelte';
 	import Body from '$lib/Text/Body.svelte';
 	import Button from '$lib/Button.svelte';
 	import Icon from '$lib/Icon.svelte';
