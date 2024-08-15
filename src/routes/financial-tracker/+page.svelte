@@ -1,8 +1,9 @@
 <script lang="ts">
 	import Column from '$lib/Column.svelte';
+    import ColumnTwo from '$lib/v2/Containers/Column.svelte';
 	import Row from '$lib/Row.svelte';
 
-    import Card from '$lib/Card.svelte';
+    import Card from '$lib/v2/Containers/Card.svelte';
 	import Body from '$lib/Text/Body.svelte';
 	import Button from '$lib/Button.svelte';
 	import Icon from '$lib/Icon.svelte';
@@ -14,8 +15,13 @@
 
 	export let data: PageData;
 
+    let daysInMonth: any = [];
+
 	onMount(async () => {
-		
+		const today = new Date();
+        const currentYear = today.getFullYear();
+        const currentMonth = today.getMonth();
+        daysInMonth = getDaysInMonth(currentYear, currentMonth);
 	});
 
     const toggleDark = async () => {
@@ -25,6 +31,15 @@
 	const toggleHome = async () => {
 		window.location.href = '/';
 	};
+
+    function getDaysInMonth(year: any, month: any) {
+    const date = new Date(year, month, 0);
+    const days = [];
+    for (let i = 1; i <= date.getDate(); i++) {
+        days.push((new Date(year, month, i)).toLocaleDateString());
+    }
+    return days;
+    }
 </script>
 
 <svelte:head>
@@ -179,9 +194,62 @@
 	<Body align="center" size="18px" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>UI for managing financial transactions.</Body>
 </Column>
 
-<Row>
-    <Card>
-        
+<Row width="100%" margintop="25px">
+    <Card width="100%" maxwidth="100%" dark={$dark}>
+        <ColumnTwo overflowx="auto">
+            <Row minheight="175px" height="100%">
+                <Row height="100%" background="var(--warn)" border="solid 1px var(--primary)" width="50px" align="center">
+                    <div style="color: var(--darktext); width: 80%; writing-mode: vertical-rl; font-size: 24px;">
+                        RECURRING
+                    </div>
+                </Row>
+                <div style="display: flex; height: calc(100% - 1px); border: solid 1px var(--primary); border-left: none;" class="alternating-bg {$dark ? 'dark-bg' : ''}">
+                    {#each daysInMonth as day}                    
+                        <div>
+                        
+                        </div>                        
+                    {/each}
+                </div>
+            </Row>
+            <Row minheight="175px"  height="100%" >
+                <Row height="100%" width="50px" background="var(--warn)" border="solid 1px var(--primary)" align="center">
+                    <div style="color: var(--darktext); width: 80%; writing-mode: vertical-rl; font-size: 24px;">
+                        SINGLE
+                    </div>
+                </Row>
+                <div style="display: flex; height: calc(100% - 1px); border: solid 1px var(--primary); border-left: none;" class="alternating-bg {$dark ? 'dark-bg' : ''}">
+                    {#each daysInMonth as day}                    
+                        <div>
+                        
+                        </div>                        
+                    {/each}
+                </div>
+            </Row>
+            <Row minheight="25px" height="25px"  background="var(--primary)" width="100%">
+                <div style="min-width: 50px; background: var(--primary); border-right: solid 1px var(--primary); border-left: solid 1px var(--primary)"></div>
+                <div style="display: flex; height: calc(100% - 1px); border: solid 1px var(--primary); border-left: none; background: var(--primary)">
+                    {#each daysInMonth as day}                    
+                        <div style="display: flex; align-items: center; justify-content: center; min-width: 150px; max-width: 150px; border-right: solid 1px var(--primary)">
+                            <p style="color: var(--darktext)">{day}</p>
+                        </div>                        
+                    {/each}
+                </div>
+            </Row>
+            <Row minheight="175px">
+                <Row height="calc(100% - 2px)" width="50px" background="var(--success)" border="solid 1px var(--primary)" align="center">
+                    <div style="color: var(--darktext); width: 80%; writing-mode: vertical-rl; font-size: 24px;">
+                        INCOME
+                    </div>
+                </Row>
+                <div style="display: flex; height: calc(100% - 2px); border: solid 1px var(--primary); border-left: none;" class="alternating-bg {$dark ? 'dark-bg' : ''}">
+                    {#each daysInMonth as day}                    
+                        <div>
+                        
+                        </div>                        
+                    {/each}
+                </div>
+            </Row>
+        </ColumnTwo>
     </Card>
 </Row>
 
@@ -241,3 +309,31 @@
 
 
 </Column>
+
+<style type="text/css">
+    .alternating-bg > div:nth-child(2n + 1) {
+        min-width: 150px;
+        max-width: 150px;
+        background: rgb(240,240,240) !important;
+        border-right: solid 1px var(--primary);
+    }
+
+    .dark-bg > div:nth-child(2n + 1) {
+        background: rgb(40,40,40) !important;
+    }
+
+    .alternating-bg > div:nth-child(2n) {
+        min-width: 150px;
+        max-width: 150px;
+        background: white !important;
+        border-right: solid 1px var(--primary);
+    }
+
+    .dark-bg > div:nth-child(2n) {
+        background: rgb(75,75,75) !important;
+    }
+
+    .alternating-bg > div:last-child {
+        border-right: none;
+    }
+</style>

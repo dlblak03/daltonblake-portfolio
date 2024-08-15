@@ -219,13 +219,9 @@
 			</Card>
 			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/financial-tracker'}} dark={$dark} direction="column">
 				{#if $dark}
-					<Row cursor="pointer" grow="1" width="100%" align="center" justify="center">
-						<Icon icon="fa-piggy-bank" size="fa-xl" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon>
-					</Row>
+					<Image src="/financial_tracker_dark.png"></Image>
 				{:else}
-					<Row cursor="pointer" grow="1" width="100%" align="center" justify="center">
-						<Icon icon="fa-piggy-bank" size="fa-xl" color={$dark ? 'var(--primary)' : 'var(--primary)'}></Icon>
-					</Row>
+					<Image src="/financial_tracker_light.png"></Image>
 				{/if}
 				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-piggy-bank" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>Financial Tracker - IP</Body></Row>
 			</Card>
