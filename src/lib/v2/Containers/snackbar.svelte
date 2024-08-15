@@ -5,7 +5,7 @@
 
     export function openSnackbar(): void { display = true }
     export function closeSnackbar(): void { display = false }
-    import Card from "./card.svelte";
+    import Card from "./cardtwo.svelte";
 	import Row from "./row.svelte";
 </script>
 

@@ -21,7 +21,7 @@
 	export let minwidth = '99vw'
 
 	import ButtonHover from '$lib/v2/Buttons/button-hover.svelte';
-	import Card from '../Containers/card.svelte';
+	import Card from './cardtwo.svelte';
 	import Row from '../Containers/row.svelte';
 </script>
 

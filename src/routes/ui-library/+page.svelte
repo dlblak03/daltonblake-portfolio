@@ -5,7 +5,7 @@
 	import Image from '$lib/Image.svelte';
 	import Row from '$lib/Row.svelte';
 	import Body from '$lib/Text/Body.svelte';
-	import Card from '$lib/v2/Containers/card.svelte';
+	import Card from '$lib/v2/Containers/cardtwo.svelte';
 	import { text } from '@sveltejs/kit';
 
 	import { dark } from '../ui_store';
