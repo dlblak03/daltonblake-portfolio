@@ -14,14 +14,23 @@
 	import { onMount } from 'svelte';
 
 	export let data: PageData;
-
+    
+    const today = new Date();
+    let openDates: boolean = false;
+    let currentYear: any = today.getFullYear();
+    let currentMonth: any = today.getMonth();
+    let years: any = []
+    let months: any = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     let daysInMonth: any = [];
 
 	onMount(async () => {
-		const today = new Date();
-        const currentYear = today.getFullYear();
-        const currentMonth = today.getMonth();
         daysInMonth = getDaysInMonth(currentYear, currentMonth);
+
+        for(let currentYearI = currentYear - 6; currentYearI < currentYear + 6; currentYearI++) {
+            years.push(currentYearI)
+        }
+
+        years = [...years]
 	});
 
     const toggleDark = async () => {
@@ -39,6 +48,19 @@
         days.push((new Date(year, month, i)).toLocaleDateString());
     }
     return days;
+    }
+
+    function updateTimelineYear(year: any) {
+        currentYear = year;
+        daysInMonth = getDaysInMonth(currentYear, currentMonth);
+        daysInMonth = [...daysInMonth]
+    }
+
+    function updateTimelineMonth(month: any) {
+        var index = months.indexOf(month)
+        currentMonth = index;
+        daysInMonth = getDaysInMonth(currentYear, currentMonth);
+        daysInMonth = [...daysInMonth]
     }
 </script>
 
@@ -195,8 +217,8 @@
 </Column>
 
 <Row width="100%" margintop="25px">
-    <Card width="100%" maxwidth="100%" dark={$dark}>
-        <ColumnTwo overflowx="auto">
+    <Card position="relative" width="100%" maxwidth="100%" height="100%" dark={$dark}>
+        <ColumnTwo position="relative" overflowx="auto">
             <Row minheight="175px" height="100%">
                 <Row height="100%" background="var(--warn)" border="solid 1px var(--primary)" width="50px" align="center">
                     <div style="color: var(--darktext); width: 80%; writing-mode: vertical-rl; font-size: 24px;">
@@ -205,8 +227,10 @@
                 </Row>
                 <div style="display: flex; height: calc(100% - 1px); border: solid 1px var(--primary); border-left: none;" class="alternating-bg {$dark ? 'dark-bg' : ''}">
                     {#each daysInMonth as day}                    
-                        <div>
-                        
+                        <div style="position: relative; padding: 5px; height: calc(100% - 10px); width: calc(100% - 10px); display: flex; flex-direction: column;">
+                            <div style="margin-top: auto; padding: 5px; cursor: pointer; background: rgba(0,0,0,0.15); border-radius: 5px; display: flex; align-items: center; justify-content: center;">
+                                <Icon icon="fa-plus" color="{$dark ? 'var(--darktext)' : 'var(--primary)'}"></Icon>
+                            </div>
                         </div>                        
                     {/each}
                 </div>
@@ -219,18 +243,45 @@
                 </Row>
                 <div style="display: flex; height: calc(100% - 1px); border: solid 1px var(--primary); border-left: none;" class="alternating-bg {$dark ? 'dark-bg' : ''}">
                     {#each daysInMonth as day}                    
-                        <div>
-                        
-                        </div>                        
+                    <div style="position: relative; padding: 5px; height: calc(100% - 10px); width: calc(100% - 10px); display: flex; flex-direction: column;">
+                        <div style="margin-top: auto; padding: 5px; cursor: pointer; background: rgba(0,0,0,0.15); border-radius: 5px; display: flex; align-items: center; justify-content: center;">
+                            <Icon icon="fa-plus" color="{$dark ? 'var(--darktext)' : 'var(--primary)'}"></Icon>
+                        </div>
+                    </div>                       
                     {/each}
                 </div>
             </Row>
-            <Row minheight="25px" height="25px"  background="var(--primary)" width="100%">
-                <div style="min-width: 50px; background: var(--primary); border-right: solid 1px var(--primary); border-left: solid 1px var(--primary)"></div>
+            <Row minheight="25px" height="25px"  background="var(--primary)" width="100%" zindex="10">
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <!-- svelte-ignore a11y-no-static-element-interactions -->
+                <div on:click={() => { openDates = !openDates }} style="z-index: 10; position: relative; font-size: 12px; cursor: pointer; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--darktext); min-width: 50px; background: var(--primary); border-right: solid 1px var(--primary); border-left: solid 1px var(--primary)">
+                    DATE
+                    <div style="transition: all 300ms; position: absolute; left: calc(100% + 10px); height: 50px; z-index: 10; transform: {openDates ? 'scale(1)' : 'scale(0)'}">
+                        <Card background="{$dark ? 'var(--primary)' : 'white'}">
+                            <Column border="solid 1px {$dark ? 'var(--darktext)' : 'var(--primary)'}" borderradius="5px">
+                                <Row>
+                                    {#each years as year}
+                                        <div on:click={() => { updateTimelineYear(year); }} style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'}; width: 75px; height: 25px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                                            {year}
+                                        </div>
+                                    {/each}
+                                </Row>
+                                <div style="min-height: 1px; background: {$dark ? 'var(--darktext)' : 'var(--primary)'}; width: 100%;"></div>
+                                <Row>
+                                    {#each months as month}
+                                        <div on:click={() => { updateTimelineMonth(month); }} style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'}; width: 75px; height: 25px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                                            {month}
+                                        </div>
+                                    {/each}
+                                </Row>
+                            </Column>
+                        </Card>
+                    </div>
+                </div>
                 <div style="display: flex; height: calc(100% - 1px); border: solid 1px var(--primary); border-left: none; background: var(--primary)">
                     {#each daysInMonth as day}                    
-                        <div style="display: flex; align-items: center; justify-content: center; min-width: 150px; max-width: 150px; border-right: solid 1px var(--primary)">
-                            <p style="color: var(--darktext)">{day}</p>
+                        <div style="display: flex; align-items: center; justify-content: center; min-width: 160px; max-width: 160px; border-right: solid 1px var(--primary)">
+                            <p style="color: var(--darktext); font-size: 12px;">{day}</p>
                         </div>                        
                     {/each}
                 </div>
@@ -243,13 +294,16 @@
                 </Row>
                 <div style="display: flex; height: calc(100% - 2px); border: solid 1px var(--primary); border-left: none;" class="alternating-bg {$dark ? 'dark-bg' : ''}">
                     {#each daysInMonth as day}                    
-                        <div>
-                        
-                        </div>                        
+                    <div style="position: relative; padding: 5px; height: calc(100% - 10px); width: calc(100% - 10px); display: flex; flex-direction: column;">
+                        <div style="margin-top: auto; padding: 5px; cursor: pointer; background: rgba(0,0,0,0.15); border-radius: 5px; display: flex; align-items: center; justify-content: center;">
+                            <Icon icon="fa-plus" color="{$dark ? 'var(--darktext)' : 'var(--primary)'}"></Icon>
+                        </div>
+                    </div>                       
                     {/each}
                 </div>
             </Row>
         </ColumnTwo>
+        
     </Card>
 </Row>
 

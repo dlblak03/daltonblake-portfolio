@@ -12,6 +12,7 @@
 	import Header from '$lib/Text/Header.svelte';
 	import ButtonPrimary from '$lib/v2/Buttons/button-primary.svelte';
 	import ButtonHover from '$lib/v2/Buttons/button-hover.svelte';
+	import Cardtwo from '$lib/v2/Containers/cardtwo.svelte';
 
     var buttonsActive = false
     var containersActive = false
@@ -213,7 +214,7 @@
         </Row>
     </Row>
 
-    <Column height="25vh" margintop="50px" align="center" width="100%">
+    <Column minheight="25vh" margintop="50px" width="calc(100% - 100px)" padding="0 50px">
         {#if buttonsActive}
 			<Row gap="25px" wrap="wrap">
 				<Button color={$dark ? 'var(--darktext)' : 'var(--primary)'}>Link Button</Button>
@@ -225,7 +226,101 @@
 				{/if}
 			</Row>
 		{:else if containersActive}
-
+			<Column gap="10px">
+				<Header color="{$dark ? 'var(--darktext)' : 'var(--primary)'}">Card</Header>
+				<Column gap="10px" padding="15px">
+					<Cardtwo dark="{$dark}" padding="10px 20px">
+						<Column>
+							<Body weight="500" size="18px" color="{$dark ? 'var(--darktext)' : 'var(--primary)'}">Welcome to my UI Portfolio</Body>
+							<Body color="{$dark ? 'var(--darktext)' : 'var(--primary)'}">Here you can find a variety of coding projects I am working on.</Body>
+						</Column>					
+					</Cardtwo>
+					<Body color="{$dark ? 'var(--darktext)' : 'var(--primary)'}">Here is the HTML for the Card component:</Body>
+					<code style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'}">
+						&lt;div on:click style="<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;display: {`{display}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;flex-direction: {`{direction}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;align-items: {`{alignitems}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;align-content: {`{aligncontent}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;align-self: {`{alignself}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;justify-items: {`{justifyitems}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;justify-content: {`{justifycontent}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;justify-self: {`{justifyself}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;gap: {`{gap}`};<br>
+						<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;height: {`{height}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;min-height: {`{minheight}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;max-height: {`{maxheight}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;width: {`{width}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;min-width: {`{minwidth}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;max-width: {`{maxwidth}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;flex-grow: {`{grow}`};<br>
+						<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;padding: {`{padding}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;margin: {`{margin}`};<br>
+						<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;background: {`{dark ? 'rgb(40,40,40)' : background}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;border: {`{border}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;border-radius: {`{borderradius}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;box-shadow: {`{boxshadow}`}; <br>
+						&nbsp;&nbsp;&nbsp;&nbsp;cursor: {`{cursor}`};<br>
+						<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;overflow-x: {`{overflowx}`};<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;overflow-y: {`{overflowy}`};<br>
+						<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;position: {`{position}`};<br>
+						<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;transition: {`{transition}`};<br>
+						"&gt;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;slot /&gt;<br>
+						&lt;/div&gt;
+					</code>
+					<Body color="{$dark ? 'var(--darktext)' : 'var(--primary)'}">Here are the parameters for the Card component:</Body>
+					<code style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'}">
+						export let dark = false;<br>
+						<br>
+						export let display = "flex";<br>
+						export let direction = "row";<br>
+						export let alignitems = "normal";<br>
+						export let aligncontent = "stretch";<br>
+						export let alignself = "auto";<br>
+						export let justifyitems = "normal";<br>
+						export let justifycontent = "stretch";<br>
+						export let justifyself = "auto";<br>
+						export let gap = "0";<br>
+						<br>
+						export let height = "fit-content";<br>
+						export let minheight = "50px";<br>
+						export let maxheight = "fit-content";<br>
+						export let width = "fit-content";<br>
+						export let minwidth = "50px";<br>
+						export let maxwidth = "fit-content";<br>
+						export let grow = "0";<br>
+						<br>
+						export let padding = "0 0 0 0";<br>
+						export let margin = "0 0 0 0";<br>
+						<br>
+						export let background = "white";<br>
+						export let border = "none";<br>
+						export let borderradius = "5px";<br>
+						export let boxshadow = "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px";<br>
+						export let cursor = "default";<br>
+						<br>
+						export let overflowx = "hidden";<br>
+						export let overflowy = "hidden";<br>
+						<br>
+						export let position = "relative";<br>
+						<br>
+						export let transition = "all 300ms";<br>
+					</code>
+					<Body color="{$dark ? 'var(--darktext)' : 'var(--primary)'}">Here is an example usage of the Card component:</Body>
+					<code style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'}">
+						&lt;Card dark={'{$dark}'} minheight="150px" minwidth="150px"&gt; -- content --  &lt;/Card&gt;
+					</code>
+					<Body color="{$dark ? 'var(--darktext)' : 'var(--primary)'}">Which then produces this:</Body>
+					<Cardtwo dark={$dark} minheight="150px" minwidth="150px"></Cardtwo>
+				</Column>
+			</Column>
 		{:else if graphicsActive}
 
 		{:else if inputsActive}
@@ -290,3 +385,11 @@
 		</Column>
 	</Row>
 </Column>
+
+<style>
+	code {
+		background: rgba(0,0,0,0.1);
+		padding: 15px;
+		border-radius: 5px;
+	}
+</style>
