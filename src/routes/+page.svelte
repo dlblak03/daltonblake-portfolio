@@ -201,21 +201,29 @@
 		></Row>
 		<Row width="calc(100% - 100px)" wrap="wrap" margintop="-25px" padding="0 50px" justify="center"><Body color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="10px">IP = In-Progress; C = Completed</Body></Row>
 		<Row width="calc(100% - 100px)" wrap="wrap" padding="0 50px" rowgap="25px" gap="25px" justify="center">
-			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/pet-manager'}} dark={$dark} direction="column">
+			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/auto-manager'}} dark={$dark} direction="column">
 				{#if $dark}
-					<Image src="/pet_manager_dark.png"></Image>
+					<Row cursor="pointer" grow="1" align="center" justify="center">
+						<Icon color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="fa-lg" icon="fa-trophy"></Icon>
+					</Row>
 				{:else}
-					<Image src="/pet_manager_light.png"></Image>
+					<Row cursor="pointer" grow="1" align="center" justify="center">
+						<Icon color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="fa-lg" icon="fa-trophy"></Icon>
+					</Row>
 				{/if}
-				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-paw" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>Pet Manager - IP</Body></Row>
+				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-trophy" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>Achievement Tracker - IP</Body></Row>
 			</Card>
-			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/ui-library'}} dark={$dark} direction="column">
+			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/auto-manager'}} dark={$dark} direction="column">
 				{#if $dark}
-					<Image src="/component_library.png"></Image>
+					<Row cursor="pointer" grow="1" align="center" justify="center">
+						<Icon color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="fa-lg" icon="fa-car"></Icon>
+					</Row>
 				{:else}
-					<Image src="/component_library.png"></Image>
+					<Row cursor="pointer" grow="1" align="center" justify="center">
+						<Icon color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="fa-lg" icon="fa-car"></Icon>
+					</Row>
 				{/if}
-				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-code" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>UI Library - IP</Body></Row>
+				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-car" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>Auto Manager - IP</Body></Row>
 			</Card>
 			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/financial-tracker'}} dark={$dark} direction="column">
 				{#if $dark}
@@ -224,6 +232,58 @@
 					<Image src="/financial_tracker_light.png"></Image>
 				{/if}
 				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-piggy-bank" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>Financial Tracker - IP</Body></Row>
+			</Card>
+			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/auto-manager'}} dark={$dark} direction="column">
+				{#if $dark}
+					<Row cursor="pointer" grow="1" align="center" justify="center">
+						<Icon color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="fa-lg" icon="fa-house"></Icon>
+					</Row>
+				{:else}
+					<Row cursor="pointer" grow="1" align="center" justify="center">
+						<Icon color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="fa-lg" icon="fa-house"></Icon>
+					</Row>
+				{/if}
+				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-house" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>Housing Manager - IP</Body></Row>
+			</Card>
+			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/auto-manager'}} dark={$dark} direction="column">
+				{#if $dark}
+					<Row cursor="pointer" grow="1" align="center" justify="center">
+						<Icon color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="fa-lg" icon="fa-chart-network"></Icon>
+					</Row>
+				{:else}
+					<Row cursor="pointer" grow="1" align="center" justify="center">
+						<Icon color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="fa-lg" icon="fa-chart-network"></Icon>
+					</Row>
+				{/if}
+				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-chart-network" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>Network Manager - IP</Body></Row>
+			</Card>
+			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/pet-manager'}} dark={$dark} direction="column">
+				{#if $dark}
+					<Image src="/pet_manager_dark.png"></Image>
+				{:else}
+					<Image src="/pet_manager_light.png"></Image>
+				{/if}
+				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-paw" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>Pet Manager - IP</Body></Row>
+			</Card>
+			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/auto-manager'}} dark={$dark} direction="column">
+				{#if $dark}
+					<Row cursor="pointer" grow="1" align="center" justify="center">
+						<Icon color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="fa-lg" icon="fa-briefcase"></Icon>
+					</Row>
+				{:else}
+					<Row cursor="pointer" grow="1" align="center" justify="center">
+						<Icon color={$dark ? 'var(--darktext)' : 'var(--primary)'} size="fa-lg" icon="fa-briefcase"></Icon>
+					</Row>
+				{/if}
+				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-briefcase" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>Work Manager - IP</Body></Row>
+			</Card>
+			<Card minheight="200px" minwidth="300px" cursor="pointer" on:click={() => { window.location.href='/ui-library'}} dark={$dark} direction="column">
+				{#if $dark}
+					<Image src="/component_library.png"></Image>
+				{:else}
+					<Image src="/component_library.png"></Image>
+				{/if}
+				<Row minheight="45px" margintop="auto" background="var(--primary)" cursor="pointer" justify="center" padding="0 50px" align="center" gap="10px"><Icon icon="fa-code" size="fa-lg" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}></Icon><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--darktext)'}>UI Library - IP</Body></Row>
 			</Card>
 		</Row>
 	</Column>
@@ -236,6 +296,7 @@
 		<Row width="calc(100% - 100px)" justify="center" wrap="flex-wrap" padding="0 50px">
 			<Row on:click={() => {window.location.href="https://www.linkedin.com/in/daltonblake05/"}} cursor="pointer" padding="0 25px" gap="10px" align="center" width="fit-content"><i style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'}; margin-left: 0" class="fa-brands fa-linkedin fa-xl"></i><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--primary)'}>LinkedIn</Body></Row>
 			<Row on:click={() => {window.location.href="https://github.com/dlblak03"}} cursor="pointer" padding="0 25px" gap="10px" align="center" width="fit-content"><i style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'}; margin-left: 0" class="fa-brands fa-github fa-xl"></i><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--primary)'}>Github</Body></Row>
+			<Row on:click={() => {window.location.href="https://codepen.io/dlblak03"}} cursor="pointer" padding="0 25px" gap="10px" align="center" width="fit-content"><i style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'}; margin-left: 0" class="fa-brands fa-codepen fa-xl"></i><Body weight="bold" color={$dark ? 'var(--darktext)' : 'var(--primary)'}>Codepen</Body></Row>
 		</Row>
 		<Row justify="center" width="100%">
 			<iframe src='https://www.juicer.io/api/feeds/daltonblake05/iframe' frameborder='0' width='1000' height='1000' style='display:block;margin:0 auto;'></iframe>
