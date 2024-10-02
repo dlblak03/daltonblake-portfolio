@@ -410,7 +410,7 @@
 		position: absolute;
 		height: 3px;
 		width: 30px;
-		transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+		transition: all 300ms;
 		border-radius: 2px;
 	}
 
@@ -421,7 +421,7 @@
 		position: absolute;
 		height: 3px;
 		width: 30px;
-		transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+		transition: transform 300ms;
 		border-radius: 2px;
 	}
 
@@ -437,7 +437,7 @@
 
 	#menu-toggle:checked + .menu-button-container .menu-button::before {
 		margin-top: 0px;
-		transform: rotate(405deg);
+		transform: rotate(45deg);
 	}
 
 	#menu-toggle:checked + .menu-button-container .dark-menu::before {
@@ -454,7 +454,7 @@
 
 	#menu-toggle:checked + .menu-button-container .menu-button::after {
 		margin-top: 0px;
-		transform: rotate(-405deg);
+		transform: rotate(-45deg);
 	}
 
 	#menu-toggle:checked + .menu-button-container .dark-menu::after {
