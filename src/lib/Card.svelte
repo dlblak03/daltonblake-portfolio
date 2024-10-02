@@ -24,6 +24,6 @@
 
 <style type="text/css">
     .card {
-        overflow: hidden; position: relative; gap: 20px; padding: 20px 0px; padding-top: 0; display: flex; flex-direction: column; width: 300px; max-width: 300px; box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),0 12.5px 10px rgba(0, 0, 0, 0.06),0 22.3px 17.9px rgba(0, 0, 0, 0.072),0 41.8px 33.4px rgba(0, 0, 0, 0.086),0 100px 80px rgba(0, 0, 0, 0.12); transition: all 300ms;
+        overflow: hidden; position: relative; gap: 20px; padding: 20px 0px; padding-top: 0; display: flex; flex-direction: column; width: 300px; max-width: 300px; box-shadow:rgba(50, 50, 50, 0.75) 0px 10px 25px -10px, rgba(0, 0, 0, 0.75) 0px 10px 15px -10px; transition: all 300ms;
     }
 </style>
