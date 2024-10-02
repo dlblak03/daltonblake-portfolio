@@ -455,7 +455,7 @@
 					<Row width="100%" align="center" justify="center">
 						<Card
 							dark={$dark}
-							shadow="rgba(0, 0, 0, 0.3) 0px 4px 12px"
+							shadow="rgba(50, 50, 50, 0.75) 0px 10px 25px -10px, rgba(0, 0, 0, 0.75) 0px 10px 15px -10px"
 							background={$dark ? 'rgb(75,75,75)' : 'white'}
 							width="calc(100% - 20px)"
 							maxwidth="none"
