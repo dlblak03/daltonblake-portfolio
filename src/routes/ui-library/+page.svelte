@@ -303,7 +303,7 @@
 						export let background = "white";<br>
 						export let border = "none";<br>
 						export let borderradius = "5px";<br>
-						export let boxshadow = "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px";<br>
+						export let boxshadow = "rgba(50, 50, 50, 0.75) 0px 10px 25px -10px, rgba(0, 0, 0, 0.75) 0px 10px 15px -10px";<br>
 						export let cursor = "default";<br>
 						<br>
 						export let overflowx = "hidden";<br>
