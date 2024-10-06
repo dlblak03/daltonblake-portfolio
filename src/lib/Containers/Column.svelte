@@ -19,6 +19,7 @@
 	export let background = 'white';
 	export let border = 'none';
 	export let borderright = 'default';
+	export let borderleft = 'default';
 	export let borderbottom = 'default';
 	export let bordertop = 'default';
 	export let borderradius = '0';
@@ -35,24 +36,26 @@
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <!-- svelte-ignore a11y-mouse-events-have-key-events -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
-on:click
-on:mouseover
-on:mouseleave
-	class="row {includeHover ? 'row-hover' : ''}"
-	style="flex-wrap: {wrap}; box-shadow: {boxshadow}; max-width: {maxwidth}; transition: {transition}; cursor: {cursor}; position: {position}; border: {border}; border-bottom: {borderbottom}; border-top: {bordertop}; border-radius: {borderradius}; align-items: {alignitems}; justify-content: {justifycontent}; gap: {gap}; flex-grow: {grow}; min-width: {minwidth}; min-height: {minheight}; max-height: {maxheight}; padding: {padding}; margin: {margin}; background: {dark ? 'rgb(40,40,40)' : background};"
+	on:click
+	on:mouseover
+	on:mouseleave
+	class="column {includeHover ? 'column-hover' : ''}"
+	style="overflow-x: {overflowx}; overflow-y: {overflowy}; flex-wrap: {wrap}; box-shadow: {boxshadow}; max-width: {maxwidth}; transition: {transition}; cursor: {cursor}; position: {position}; border: {border}; border-bottom: {borderbottom}; border-top: {bordertop}; border-left: {borderleft}; border-right: {borderright}; border-radius: {borderradius}; align-items: {alignitems}; justify-content: {justifycontent}; gap: {gap}; flex-grow: {grow}; min-width: {minwidth}; min-height: {minheight}; max-height: {maxheight}; padding: {padding}; margin: {margin}; background: {dark
+		? 'rgb(20,20,20)'
+		: background};"
 >
 	<slot />
 </div>
 
 <style>
-	.row {
+	.column {
 		display: flex;
-		align-items: flex-start;
-		justify-content: flex-start;
+		flex-direction: column;
 	}
 
-	.row-hover:hover {
-		background: rgb(235,235,235) !important;
+	.column-hover:hover {
+		background: rgb(235, 235, 235) !important;
 	}
 </style>

@@ -2,9 +2,12 @@
   export let color = 'default'
   export let fontsize = '16px'
   export let fontweight = '400'
+
+  export let letterspacing = "default"
+  export let textalign = 'start'
 </script>
 
-<p style="color: {color}; font-size: {fontsize}; font-weight: {fontweight};"><slot /></p>
+<p style="color: {color}; font-size: {fontsize}; font-weight: {fontweight}; letter-spacing: {letterspacing}; text-align: {textalign};"><slot /></p>
 
 <style>
 	p {

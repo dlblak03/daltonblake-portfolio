@@ -5,8 +5,8 @@
 
     export function openSnackbar(): void { display = true }
     export function closeSnackbar(): void { display = false }
-    import Card from "./cardtwo.svelte";
-	import Row from "./row.svelte";
+    import Card from "./Card.svelte";
+	import Row from "./Row.svelte";
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->

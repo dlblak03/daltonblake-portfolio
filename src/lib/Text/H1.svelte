@@ -1,8 +1,10 @@
 <script lang="ts">
-	
+	export let letterspacing = "default"
+    export let color = 'default'
+    export let textalign = 'start'
 </script>
 
-<h1><slot/></h1>
+<h1 style="color: {color}; letter-spacing: {letterspacing}; text-align: {textalign};"><slot/></h1>
 
 <style>
 	h1 {

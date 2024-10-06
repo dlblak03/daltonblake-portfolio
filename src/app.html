@@ -1,25 +1,29 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%sveltekit.head%
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	%sveltekit.head%
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
 		href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
 		rel="stylesheet">
-		<script src="https://kit.fontawesome.com/7f9507c0df.js" crossorigin="anonymous"></script>
-		<style>
-			body {
-				margin: 0; 
-				height: 100vh;
-				width: 100vw;
-				overflow-x: hidden;
-			}
-			* {
+
+	<script src="https://kit.fontawesome.com/7f9507c0df.js" crossorigin="anonymous"></script>
+
+	<style>
+		body {
+			margin: 0;
+			height: 100vh;
+			width: 100vw;
+			overflow-x: hidden;
+		}
+
+		* {
 			font-family: 'Roboto', sans-serif;
 		}
 
@@ -33,21 +37,6 @@
 			--link: rgb(2 0 112 / 95.9%);
 			--darktext: #fffee0;
 			--success: #1ada24;
-		}
-
-		.link-a {
-			color: inherit;
-			text-decoration: none;
-			height: 100%;
-			width: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-
-		.link-a:hover {
-			color: inherit;
-			text-decoration: underline;
 		}
 
 		::-webkit-scrollbar {
@@ -70,175 +59,33 @@
 			color: var(--darktext) !important
 		}
 
-		@media screen and (min-width: 800px) {
-		.tablet-above {
-			display: flex;
-			align-items: center;
-			flex-grow: 1;
-		}
-
-		.mobile-only {
+		.mobile-show {
 			display: none !important;
 		}
-	}
 
-	.menu {
-		display: flex;
-		flex-direction: row;
-		list-style-type: none;
-		justify-content: center !important;
-		align-items: center !important;
-		margin: 0;
-		padding: 0;
-		width: 100% !important;
-	}
+		@media screen and (max-width: 800px) {
+			.mobile-hide {
+				display: none !important;
+			}
 
-	.menu > li {
-		margin: 0 1rem;
-		overflow: hidden;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		transition: all 300ms;
-	}
+			.mobile-hide-animate {
+				transform: scale(0) !important;
+				transition: all 150ms;
+			}
 
-	.menu-button-container {
-		display: none;
-		height: 100%;
-		width: 30px;
-		cursor: pointer;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-
-	#menu-toggle {
-		display: none;
-	}
-
-	.menu-button {
-		display: block;
-		background-color: var(--primary);
-		position: absolute;
-		height: 3px;
-		width: 30px;
-		transition: all 300ms;
-		border-radius: 2px;
-	}
-
-	.menu-button::before,
-	.menu-button::after {
-		display: block;
-		background-color: inherit;
-		position: absolute;
-		height: 3px;
-		width: 30px;
-		transition: transform 300ms;
-		border-radius: 2px;
-	}
-
-	.menu-button::before {
-		content: '';
-		margin-top: -8px;
-	}
-
-	.menu-button::after {
-		content: '';
-		margin-top: 8px;
-	}
-
-	#menu-toggle:checked + .menu-button-container .menu-button::before {
-		margin-top: 0px;
-		transform: rotate(45deg);
-	}
-
-	#menu-toggle:checked + .menu-button-container .dark-menu::before {
-		background-color: var(--darktext) !important;
-	}
-
-	#menu-toggle:checked + .menu-button-container .light-menu::before {
-		background-color: var(--primary) !important;
-	}
-
-	#menu-toggle:checked + .menu-button-container .menu-button {
-		background: transparent !important;
-	}
-
-	#menu-toggle:checked + .menu-button-container .menu-button::after {
-		margin-top: 0px;
-		transform: rotate(-45deg);
-	}
-
-	#menu-toggle:checked + .menu-button-container .dark-menu::after {
-		background-color: var(--darktext) !important;
-	}
-
-	#menu-toggle:checked + .menu-button-container .light-menu::after {
-		background-color: var(--primary) !important;
-	}
-
-	@media screen and (max-width: 800px) {
-		.tablet-above {
-			display: none;
+			.mobile-show {
+				display: block !important;
+			}
 		}
+	</style>
+</head>
 
-		.mobile-only {
-			height: 30px;
-			margin-left: auto;
-			z-index: 10000;
-		}
+<body data-sveltekit-preload-data="hover">
+	<div style="display: contents">
+		%sveltekit.body%
 
-		.menu-button-container {
-			display: flex;
-		}
-		.menu {
-			position: absolute;
-			top: 0;
-			margin-top: 100px;
-			left: 0;
-			flex-direction: column;
-			width: 100%;
-			justify-content: center;
-			align-items: center;
-			border-radius: 5px;
-			overflow: hidden;
-			box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-				0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-				0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
-		}
-		#menu-toggle ~ .menu li {
-			height: 0;
-			margin: 0;
-			padding: 0;
-			border: 0;
-		}
-		#menu-toggle:checked ~ .menu li {
-			height: 3.5em;
-			padding: 0;
-		}
-		.menu > li {
-			display: flex;
-			justify-content: center;
-			margin: 0;
-			padding: 0 0;
-			width: 100%;
-			color: var(--primary);
-			background-color: var(--secondary);
-			transition: all 300ms;
-			cursor: pointer !important;
-		}
-		.menu > li:hover {
-			background-color: var(--secondary);
-		}
-		.menu > li:not(:last-child) {
-			border-bottom: 1px solid #444;
-		}
-	}
-		</style>
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">
-			%sveltekit.body%
-		  </div>
-	</body>
+		%sveltekit.component%
+	</div>
+</body>
+
 </html>

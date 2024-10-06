@@ -6,4 +6,4 @@
     export let marginleft = "0";
 </script>
 
-<i style="color: {color}; margin-left: {marginleft}; transition: all 150ms;" class="fa-sharp fa-light {icon} {size}"></i>
+<i style="color: {color}; margin-left: {marginleft}; transition: all 150ms;" class="fa-light {icon} {size}"></i>

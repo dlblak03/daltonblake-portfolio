@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let disabled = false;
 	export let inverse = false;
+	export let dark = false;
 
 	export let width = 'fit-content';
 	export let minheight = 'fit-content';

@@ -25,7 +25,7 @@
     export let background = "white";
     export let border = "none";
     export let borderradius = "5px";
-    export let boxshadow = "rgba(50, 50, 50, 0.75) 0px 10px 25px -10px, rgba(0, 0, 0, 0.75) 0px 10px 15px -10px";
+    export let boxshadow = "rgba(0,0,0,0.5) 0 5px 5px 0";
     export let cursor = "default"
 
     export let overflowx = "hidden";
@@ -33,9 +33,11 @@
 
     export let position = "relative";
 
-    export let transition = "all 300ms";
+    export let transition = "all 150ms";
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div on:click style="
     display: {display};
     flex-direction: {direction};
