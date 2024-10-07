@@ -25,7 +25,7 @@
 </script>
 
 <div
-	style="padding: 20px 20px; z-index: 15; overflow: {overflowWrapper}; position: {position}; top: 0; left: 0; min-width: {minwidth}; width: calc(100% - 40px); min-height: {minheight}; height: calc(100% - 40px); flex-grow: 1; transform: scale({display
+	style="padding: 20px 20px; z-index: 15; overflow: {overflowWrapper}; position: {position}; top: 0; left: 0; min-width: {minwidth}; width: calc(100% - 40px); min-height: {minheight}; height: calc(100% - 40px); max-height: calc(100vh - 40px)  !important; flex-grow: 1; transform: scale({display
 		? '1'
 		: '0'}); transition: all 150ms; background: rgba(0,0,0,0.5); border-radius: {display
 		? '0'
@@ -35,9 +35,10 @@
 		{dark}
 		direction="column"
 		gap="25px"
-		overflowx={overflow}
+		overflowx={"hidden"}
 		overflowy={overflow}
 		borderradius="5px"
+		maxheight="100%"
 	>
 	<slot />
 	</Card>

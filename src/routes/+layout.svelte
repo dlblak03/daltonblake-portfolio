@@ -14,11 +14,13 @@
 	import P from '$lib/Text/P.svelte';
 	import Icon from '$lib/Graphics/Icon.svelte';
 	import Image from '$lib/Graphics/Image.svelte';
-	import H3 from '$lib/Text/H3.svelte';
 	import H2 from '$lib/Text/H2.svelte';
+	import Textbox from '$lib/Inputs/Textbox.svelte';
+	import H6 from '$lib/Text/H6.svelte';
 
 	let menuToggle: boolean = false;
 	let aboutDialog: boolean = false;
+	let projectsDialog: boolean = false;
 
 	export let data;
 
@@ -80,7 +82,11 @@
 					aboutDialog = !aboutDialog;
 				}}>About</ButtonPrimary
 			>
-			<ButtonPrimary>Projects</ButtonPrimary>
+			<ButtonPrimary
+				on:click={() => {
+					projectsDialog = !projectsDialog;
+				}}>Projects</ButtonPrimary
+			>
 			{#if $dark}
 				<Row
 					on:click={toggleDark}
@@ -190,7 +196,10 @@
 				minheight="40px"
 				padding="0 0 10px 0"
 				cursor="pointer"
-				background="var(--primary)"><P color="var(--darktext)">Projects</P></Row
+				background="var(--primary)"
+				on:click={() => {
+					projectsDialog = !projectsDialog;
+				}}><P color="var(--darktext)">Projects</P></Row
 			>
 		</Column>
 	</div>
@@ -270,7 +279,7 @@
 	</Row>
 </Column>
 
-<Dialog dark={$dark} display={aboutDialog} background={$dark ? 'rgb(40,40,40)' : 'white'}>
+<Dialog dark={$dark} display={aboutDialog} background={$dark ? 'rgb(40,40,40)' : 'white'} overflow="auto">
 	<Row background={$dark ? 'rgb(40,40,40)' : 'white'} padding="20px 20px 0 20px" gap="15px">
 		<Image
 			src="/Dalton_Blake_Professional_Photo.jpg"
@@ -321,7 +330,12 @@
 	</Row>
 
 	<div class="mobile-show">
-		<Row background={$dark ? 'rgb(40,40,40)' : 'white'} padding="0 20px" alignitems="center" gap="15px">
+		<Row
+			background={$dark ? 'rgb(40,40,40)' : 'white'}
+			padding="0 20px"
+			alignitems="center"
+			gap="15px"
+		>
 			<H2 color={$dark ? 'var(--darktext)' : 'var(--primary)'}>Dalton Blake</H2>
 			<Row background={$dark ? 'rgb(40,40,40)' : 'white'} gap="15px">
 				<Row
@@ -351,7 +365,7 @@
 	<Row
 		background={$dark ? 'rgb(40,40,40)' : 'white'}
 		margin="0 0 0 0"
-		padding="0 20px 20px 20px"
+		padding="0 20px 0 20px"
 		maxwidth="750px"
 	>
 		<P color={$dark ? 'var(--darktext)' : 'var(--primary)'} textalign="justify"
@@ -360,6 +374,60 @@
 			PostgreSQL, managing SEO, implementing custom application features, and UI/UX design.</P
 		>
 	</Row>
+
+	<Row background={$dark ? 'rgb(40,40,40)' : 'white'} padding="0 20px 20px 20px" gap="15px" wrap="wrap">
+		<Column grow="1" minwidth="275px" background="var(--primary)" borderradius="5px" overflowx="hidden" overflowy="hidden" padding="15px" gap="15px">
+			<Row background="var(--primary)" padding="0 10px" minwidth="calc(100% - 20px)">
+				<P fontweight="600" color="var(--darktext)" textalign="center">4.33 Years Professional Experience</P>
+			</Row>
+			<div style="background: var(--darktext); min-height: 1px; min-width: 100%;"></div>
+			<Column background="var(--primary)" gap="5px" padding="0 10px">
+				<P color="var(--darktext)">Software Engineer: <span style="font-weight: 600;">&nbsp;&nbsp;2 Years</span></P>
+				<P color="var(--darktext)">Software Developer: <span style="font-weight: 600;">&nbsp;&nbsp;2 Years</span></P>
+				<P color="var(--darktext)">Data Quality: <span style="font-weight: 600;">&nbsp;&nbsp;4 Months</span></P>
+			</Column>
+		</Column>
+
+		<Column minwidth="275px" background="var(--primary)" borderradius="5px" overflowx="hidden" overflowy="hidden" padding="15px" gap="15px">
+			<Row background="var(--primary)" padding="0 10px" minwidth="calc(100% - 20px)">
+				<P fontweight="600" color="var(--darktext)" textalign="center">6 Certifications</P>
+			</Row>
+			<div style="background: var(--darktext); min-height: 1px; min-width: 100%;"></div>
+			<Column background="var(--primary)" gap="5px" padding="0 10px">
+				<P color="var(--darktext)">Certified Agile Leader® 1</P>
+				<P color="var(--darktext)">Certified Scrum Developer®</P>
+				<P color="var(--darktext)">Relational Database</P>
+				<P color="var(--darktext)">Foundational C# with Microsoft</P>
+				<P color="var(--darktext)">JavaScript Algorithms & Data Structures (Beta)</P>
+				<P color="var(--darktext)">Responsive Web Design</P>
+			</Column>
+		</Column>
+	</Row>
+</Dialog>
+
+<Dialog dark={$dark} display={projectsDialog} background={$dark ? 'rgb(40,40,40)' : 'white'}>
+	<Row background={$dark ? 'rgb(40,40,40)' : 'white'} padding="20px 20px 0 20px" gap="25px">
+		<div style="max-width: 750px !important; width: 100vw;">
+			<Textbox
+				dark={$dark}
+				id="searchProject"
+				name="searchProject"
+				placeholder="Search for a project"
+			></Textbox>
+		</div>
+		<Row
+			grow="0"
+			on:click={() => {
+				projectsDialog = !projectsDialog;
+			}}
+			background={$dark ? 'rgb(40,40,40)' : 'white'}
+			justifycontent="end"
+		>
+			<ButtonPrimary>Close</ButtonPrimary>
+		</Row>
+	</Row>
+
+	<Row></Row>
 </Dialog>
 
 <style>

@@ -48,7 +48,7 @@
 		font-size: 16px;
 		font-weight: 500;
 		cursor: pointer;
-		color: white;
+		color: var(--darktext);
 
 		transition: all 300ms;
 	}

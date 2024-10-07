@@ -20,6 +20,6 @@
         font-size: 24px;
 		font-weight: 500;
 		
-		transition: all 300ms;
+		transition: all 150ms;
     }
 </style>
