@@ -14,9 +14,9 @@
 	export let position = 'absolute';
 	export let align = 'center';
 	export let overflowWrapper = 'hidden';
-	export let minheight = '100vh';
+	export let minheight = 'calc(100vh - 40px)';
 
-	export let minwidth = '100vw';
+	export let minwidth = 'calc(100vw - 40px)';
 
 	export let background = 'white';
 
@@ -25,9 +25,9 @@
 </script>
 
 <div
-	style="z-index: 15; overflow: {overflowWrapper}; position: {position}; top: 0; left: 0; min-width: {minwidth}; width: 100%; min-height: {minheight}; height: 100%; flex-grow: 1; transform: scale({display
+	style="padding: 20px 20px; z-index: 15; overflow: {overflowWrapper}; position: {position}; top: 0; left: 0; min-width: {minwidth}; width: calc(100% - 40px); min-height: {minheight}; height: calc(100% - 40px); flex-grow: 1; transform: scale({display
 		? '1'
-		: '0'}); transition: all 0; background: rgba(0,0,0,0.25); border-radius: {display
+		: '0'}); transition: all 150ms; background: rgba(0,0,0,0.5); border-radius: {display
 		? '0'
 		: '100%'}; display: flex; align-items: {align}; justify-content: center;"
 >

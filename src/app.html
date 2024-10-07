@@ -63,6 +63,11 @@
 			display: none !important;
 		}
 
+		.mobile-show-animate {
+				transform: scale(0) !important;
+				transition: all 150ms;
+			}
+
 		@media screen and (max-width: 800px) {
 			.mobile-hide {
 				display: none !important;
@@ -75,6 +80,11 @@
 
 			.mobile-show {
 				display: block !important;
+			}
+
+			.mobile-show-animate {
+				transform: scale(1) !important;
+				transition: all 150ms;
 			}
 		}
 	</style>

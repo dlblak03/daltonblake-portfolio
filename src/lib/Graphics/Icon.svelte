@@ -3,7 +3,7 @@
     export let icon = "";
     export let color = "default";
 
-    export let marginleft = "0";
+    export let margin = "0 0 0 0";
 </script>
 
-<i style="color: {color}; margin-left: {marginleft}; transition: all 150ms;" class="fa-light {icon} {size}"></i>
+<i style="color: {color}; margin: {margin}; transition: all 150ms;" class="fa-light {icon} {size}"></i>

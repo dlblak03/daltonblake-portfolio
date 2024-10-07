@@ -13,6 +13,9 @@
 
 	import P from '$lib/Text/P.svelte';
 	import Icon from '$lib/Graphics/Icon.svelte';
+	import Image from '$lib/Graphics/Image.svelte';
+	import H3 from '$lib/Text/H3.svelte';
+	import H2 from '$lib/Text/H2.svelte';
 
 	let menuToggle: boolean = false;
 	let aboutDialog: boolean = false;
@@ -78,7 +81,6 @@
 				}}>About</ButtonPrimary
 			>
 			<ButtonPrimary>Projects</ButtonPrimary>
-			<ButtonPrimary>Contact</ButtonPrimary>
 			{#if $dark}
 				<Row
 					on:click={toggleDark}
@@ -175,7 +177,10 @@
 				minheight="40px"
 				margin="10px 0 0 0"
 				cursor="pointer"
-				background="var(--primary)"><P color="var(--darktext)">About</P></Row
+				background="var(--primary)"
+				on:click={() => {
+					aboutDialog = !aboutDialog;
+				}}><P color="var(--darktext)">About</P></Row
 			>
 			<Row
 				alignitems="center"
@@ -183,18 +188,9 @@
 				minwidth="100%"
 				borderradius="5px"
 				minheight="40px"
+				padding="0 0 10px 0"
 				cursor="pointer"
 				background="var(--primary)"><P color="var(--darktext)">Projects</P></Row
-			>
-			<Row
-				alignitems="center"
-				justifycontent="center"
-				minwidth="100%"
-				borderradius="5px"
-				minheight="40px"
-				margin="0 0 10px 0"
-				cursor="pointer"
-				background="var(--primary)"><P color="var(--darktext)">Contact</P></Row
 			>
 		</Column>
 	</div>
@@ -274,19 +270,95 @@
 	</Row>
 </Column>
 
-<Dialog
-	dark={$dark}
-	display={aboutDialog}
-	background={$dark ? 'rgb(40,40,40)' : 'white'}
->
+<Dialog dark={$dark} display={aboutDialog} background={$dark ? 'rgb(40,40,40)' : 'white'}>
+	<Row background={$dark ? 'rgb(40,40,40)' : 'white'} padding="20px 20px 0 20px" gap="15px">
+		<Image
+			src="/Dalton_Blake_Professional_Photo.jpg"
+			maxheight="125px"
+			maxwidth="125px"
+			borderradius="5px"
+		></Image>
+		<div class="mobile-hide">
+			<Column
+				background={$dark ? 'rgb(40,40,40)' : 'white'}
+				justifycontent="center"
+				padding="10px 20px"
+			>
+				<H2 color={$dark ? 'var(--darktext)' : 'var(--primary)'}>Dalton Blake</H2>
+				<Row background={$dark ? 'rgb(40,40,40)' : 'white'} gap="15px">
+					<Row
+						cursor="pointer"
+						on:click={() => {
+							window.location.href = 'https://bcert.me/sqalzkqmt';
+						}}
+						background={$dark ? 'rgb(40,40,40)' : 'white'}
+					>
+						<Image src="/CAL_1_Badge.png" maxheight="50px" maxwidth="50px" borderradius="5px"
+						></Image>
+					</Row>
+					<Row
+						cursor="pointer"
+						on:click={() => {
+							window.location.href = 'https://bcert.me/sendfcmxe';
+						}}
+						background={$dark ? 'rgb(40,40,40)' : 'white'}
+					>
+						<Image src="/CSD_Badge.png" maxheight="50px" maxwidth="50px" borderradius="5px"></Image>
+					</Row>
+				</Row>
+			</Column>
+		</div>
+
+		<Row
+			on:click={() => {
+				aboutDialog = !aboutDialog;
+			}}
+			background={$dark ? 'rgb(40,40,40)' : 'white'}
+			justifycontent="end"
+		>
+			<ButtonPrimary>Close</ButtonPrimary>
+		</Row>
+	</Row>
+
+	<div class="mobile-show">
+		<Row background={$dark ? 'rgb(40,40,40)' : 'white'} padding="0 20px" alignitems="center" gap="15px">
+			<H2 color={$dark ? 'var(--darktext)' : 'var(--primary)'}>Dalton Blake</H2>
+			<Row background={$dark ? 'rgb(40,40,40)' : 'white'} gap="15px">
+				<Row
+					grow="0"
+					cursor="pointer"
+					on:click={() => {
+						window.location.href = 'https://bcert.me/sqalzkqmt';
+					}}
+					background={$dark ? 'rgb(40,40,40)' : 'white'}
+				>
+					<Image src="/CAL_1_Badge.png" maxheight="50px" maxwidth="50px" borderradius="5px"></Image>
+				</Row>
+				<Row
+					grow="0"
+					cursor="pointer"
+					on:click={() => {
+						window.location.href = 'https://bcert.me/sendfcmxe';
+					}}
+					background={$dark ? 'rgb(40,40,40)' : 'white'}
+				>
+					<Image src="/CSD_Badge.png" maxheight="50px" maxwidth="50px" borderradius="5px"></Image>
+				</Row>
+			</Row>
+		</Row>
+	</div>
+
 	<Row
 		background={$dark ? 'rgb(40,40,40)' : 'white'}
-		alignitems="center"
-		justifycontent="center"
-		minwidth="200px"
-		minheight="100px"
+		margin="0 0 0 0"
+		padding="0 20px 20px 20px"
+		maxwidth="750px"
 	>
-		<P color={$dark ? 'var(--darktext)' : 'var(--primary)'}>Working on it</P>
+		<P color={$dark ? 'var(--darktext)' : 'var(--primary)'} textalign="justify"
+			>Technically minded and detail-oriented professional with dynamic experience in designing and
+			executing innovative software solutions. Proficient in utilizing C#, TypeScript, SQL, and
+			PostgreSQL, managing SEO, implementing custom application features, and UI/UX design.</P
+		>
 	</Row>
 </Dialog>
 
