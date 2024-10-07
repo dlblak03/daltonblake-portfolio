@@ -15,8 +15,7 @@
 	import Icon from '$lib/Graphics/Icon.svelte';
 	import Image from '$lib/Graphics/Image.svelte';
 	import H2 from '$lib/Text/H2.svelte';
-	import Textbox from '$lib/Inputs/Textbox.svelte';
-	import H6 from '$lib/Text/H6.svelte';
+	import Textbox from '$lib/Inputs/textbox.svelte';
 
 	let menuToggle: boolean = false;
 	let aboutDialog: boolean = false;
