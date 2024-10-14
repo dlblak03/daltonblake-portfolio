@@ -12,6 +12,11 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
 		rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+		rel="stylesheet">
 
 	<script src="https://kit.fontawesome.com/7f9507c0df.js" crossorigin="anonymous"></script>
 
@@ -23,7 +28,23 @@
 			overflow-x: hidden;
 		}
 
-		* {
+		body {
+			font-family: 'Lato', sans-serif;
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			font-family: 'Roboto', sans-serif;
+		}
+
+		p {
+			font-family: 'Lato', sans-serif;
+		}
+
+		button {
+			font-family: 'Lato', sans-serif;
+		}
+
+		input {
 			font-family: 'Roboto', sans-serif;
 		}
 
@@ -64,9 +85,9 @@
 		}
 
 		.mobile-show-animate {
-				transform: scale(0) !important;
-				transition: all 150ms;
-			}
+			transform: scale(0) !important;
+			transition: all 150ms;
+		}
 
 		@media screen and (max-width: 800px) {
 			.mobile-hide {

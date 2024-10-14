@@ -78,6 +78,11 @@
 		>
 			<ButtonPrimary
 				on:click={() => {
+					window.location.href = '/';
+				}}>Home</ButtonPrimary
+			>
+			<ButtonPrimary
+				on:click={() => {
 					aboutDialog = !aboutDialog;
 				}}>About</ButtonPrimary
 			>
@@ -184,6 +189,19 @@
 				cursor="pointer"
 				background="var(--primary)"
 				on:click={() => {
+					window.location.href = '/';
+				}}><P color="var(--darktext)">Home</P></Row
+			>
+			<Row
+				alignitems="center"
+				justifycontent="center"
+				minwidth="100%"
+				borderradius="5px"
+				minheight="40px"
+				margin="0 0 0 0"
+				cursor="pointer"
+				background="var(--primary)"
+				on:click={() => {
 					aboutDialog = !aboutDialog;
 				}}><P color="var(--darktext)">About</P></Row
 			>
@@ -278,7 +296,12 @@
 	</Row>
 </Column>
 
-<Dialog dark={$dark} display={aboutDialog} background={$dark ? 'rgb(40,40,40)' : 'white'} overflow="auto">
+<Dialog
+	dark={$dark}
+	display={aboutDialog}
+	background={$dark ? 'rgb(40,40,40)' : 'white'}
+	overflow="auto"
+>
 	<Row background={$dark ? 'rgb(40,40,40)' : 'white'} padding="20px 20px 0 20px" gap="15px">
 		<Image
 			src="/Dalton_Blake_Professional_Photo.jpg"
@@ -374,20 +397,50 @@
 		>
 	</Row>
 
-	<Row background={$dark ? 'rgb(40,40,40)' : 'white'} padding="0 20px 20px 20px" gap="15px" wrap="wrap">
-		<Column grow="1" minwidth="275px" background="var(--primary)" borderradius="5px" overflowx="hidden" overflowy="hidden" padding="15px" gap="15px">
+	<Row
+		background={$dark ? 'rgb(40,40,40)' : 'white'}
+		padding="0 20px 20px 20px"
+		gap="15px"
+		wrap="wrap"
+	>
+		<Column
+			grow="1"
+			minwidth="275px"
+			background="var(--primary)"
+			borderradius="5px"
+			overflowx="hidden"
+			overflowy="hidden"
+			padding="15px"
+			gap="15px"
+		>
 			<Row background="var(--primary)" padding="0 10px" minwidth="calc(100% - 20px)">
-				<P fontweight="600" color="var(--darktext)" textalign="center">4.33 Years Professional Experience</P>
+				<P fontweight="600" color="var(--darktext)" textalign="center"
+					>4.33 Years Professional Experience</P
+				>
 			</Row>
 			<div style="background: var(--darktext); min-height: 1px; min-width: 100%;"></div>
 			<Column background="var(--primary)" gap="5px" padding="0 10px">
-				<P color="var(--darktext)">Software Engineer: <span style="font-weight: 600;">&nbsp;&nbsp;2 Years</span></P>
-				<P color="var(--darktext)">Software Developer: <span style="font-weight: 600;">&nbsp;&nbsp;2 Years</span></P>
-				<P color="var(--darktext)">Data Quality: <span style="font-weight: 600;">&nbsp;&nbsp;4 Months</span></P>
+				<P color="var(--darktext)"
+					>Software Engineer: <span style="font-weight: 600;">&nbsp;&nbsp;2 Years</span></P
+				>
+				<P color="var(--darktext)"
+					>Software Developer: <span style="font-weight: 600;">&nbsp;&nbsp;2 Years</span></P
+				>
+				<P color="var(--darktext)"
+					>Data Quality: <span style="font-weight: 600;">&nbsp;&nbsp;4 Months</span></P
+				>
 			</Column>
 		</Column>
 
-		<Column minwidth="275px" background="var(--primary)" borderradius="5px" overflowx="hidden" overflowy="hidden" padding="15px" gap="15px">
+		<Column
+			minwidth="275px"
+			background="var(--primary)"
+			borderradius="5px"
+			overflowx="hidden"
+			overflowy="hidden"
+			padding="15px"
+			gap="15px"
+		>
 			<Row background="var(--primary)" padding="0 10px" minwidth="calc(100% - 20px)">
 				<P fontweight="600" color="var(--darktext)" textalign="center">6 Certifications</P>
 			</Row>
@@ -426,7 +479,60 @@
 		</Row>
 	</Row>
 
-	<Row></Row>
+	<Row background={$dark ? 'rgb(40,40,40)' : 'white'} padding="0 20px 20px 20px">
+		<Column
+			maxwidth="fit-content"
+			background={$dark ? 'rgb(40,40,40)' : 'white'}
+			borderradius="5px"
+			border="solid 2px var(--primary)"
+			overflowx="hidden"
+			overflowy="hidden"
+			gap="10px"
+			cursor="pointer"
+			on:click={() => {
+				window.location.href = '/ui-components';
+			}}
+		>
+			<Row background={$dark ? 'rgb(40,40,40)' : 'white'} minwidth="100%" cursor="pointer">
+				<Image src="/UI_Components.png" maxheight="100px"></Image>
+			</Row>
+			<Row background={$dark ? 'rgb(40,40,40)' : 'white'} padding="0 10px" cursor="pointer">
+				<P
+					color={$dark ? 'var(--darktext)' : 'var(--primary)'}
+					fontsize="18px"
+					textdecoration="underline">UI Components</P
+				>
+			</Row>
+			<Row
+				background={$dark ? 'rgb(40,40,40)' : 'white'}
+				padding="0 10px 10px 10px"
+				cursor="pointer"
+			>
+				<P color={$dark ? 'var(--darktext)' : 'var(--primary)'} fontsize="14px"
+					>A set of UI Components for SvelteKit.</P
+				>
+			</Row>
+			<Row
+				background={$dark ? 'rgb(40,40,40)' : 'white'}
+				padding="0 10px 10px 10px"
+				cursor="pointer"
+				gap="10px"
+			>
+				<Row background="var(--primary)" padding="5px" borderradius="5px">
+					<P color={$dark ? 'var(--darktext)' : 'var(--darktext)'} fontsize="12px">SvelteKit</P>
+				</Row>
+				<Row background="var(--primary)" padding="5px" borderradius="5px">
+					<P color={$dark ? 'var(--darktext)' : 'var(--darktext)'} fontsize="12px">HTML</P>
+				</Row>
+				<Row background="var(--primary)" padding="5px" borderradius="5px">
+					<P color={$dark ? 'var(--darktext)' : 'var(--darktext)'} fontsize="12px">CSS</P>
+				</Row>
+				<Row background="var(--primary)" padding="5px" borderradius="5px">
+					<P color={$dark ? 'var(--darktext)' : 'var(--darktext)'} fontsize="12px">UI</P>
+				</Row>
+			</Row>
+		</Column>
+	</Row>
 </Dialog>
 
 <style>
