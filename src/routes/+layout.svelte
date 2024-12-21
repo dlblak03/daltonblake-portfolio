@@ -207,7 +207,7 @@
 
 	<Row
 		grow="0"
-		padding="0 20px 0 20px"
+		padding="0 20px 20px 20px"
 		margin="0 0 0 0"
 		alignitems="center"
 		justifycontent="end"
@@ -253,26 +253,6 @@
 							: 'var(--primary)'}; height: 1px; width: 25vw;"
 					/>
 				</Row>
-			</Row>
-		</Column>
-	</Row>
-
-	<Row
-		grow="0"
-		alignitems="center"
-		margin="15px 0 0 0"
-		justifycontent="center"
-		gap="20px"
-		wrap="wrap"
-		minwidth="100%"
-		dark={$dark}
-	>
-		<Column alignitems="center" dark={$dark}>
-			<Row justifycontent="center" padding="0 0 20px 0" dark={$dark}>
-				<!-- svelte-ignore a11y-missing-attribute -->
-				<P fontsize="12px" color={$dark ? 'var(--darktext)' : 'var(--primary)'}
-					>Development by Dalton Blake</P
-				>
 			</Row>
 		</Column>
 	</Row>

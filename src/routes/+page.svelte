@@ -58,7 +58,7 @@
 </svelte:head>
 
 <Column justifycontent="center" alignitems="center" minwidth="100%" dark={$dark}>
-	<Row grow="0" dark={$dark} justifycontent="center" alignitems="center">
+	<Row grow="0" dark={$dark} justifycontent="center" alignitems="center" padding="0 20px">
 		<div id="typing-container">
 			<span style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'}; letter-spacing: 0.2rem; text-align: center;" id="typing-text">{textVariable}</span>
 			<span style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'};" id="cursor">|</span>
@@ -66,7 +66,7 @@
 	</Row>
 
 	<div
-		style="margin-top: 50px; display: flex; align-items: center; width: 125px; height: 35px; gap: 15px; background: var(--primary); padding: 15px 15px; border-radius: 5px;"
+		style="margin-top: 50px; display: flex; align-items: center; width: 125px; height: 35px; gap: 10px; background: var(--primary); padding: 10px 10px; border-radius: 5px;"
 	>
 		<Row
 			cursor="pointer"
