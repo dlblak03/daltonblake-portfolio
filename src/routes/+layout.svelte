@@ -1,25 +1,18 @@
 <!-- src/routes/+layout.svelte -->
 <script lang="ts">
-	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 
 	import { dark } from './ui_store';
 
 	import Column from '$lib/Containers/Column.svelte';
 	import Row from '$lib/Containers/Row.svelte';
-	import Dialog from '$lib/Containers/Dialog.svelte';
 
-	import ButtonPrimary from '$lib/Buttons/ButtonPrimary.svelte';
+	import ButtonHover from '$lib/Buttons/ButtonHover.svelte';
 
 	import P from '$lib/Text/P.svelte';
 	import Icon from '$lib/Graphics/Icon.svelte';
-	import Image from '$lib/Graphics/Image.svelte';
-	import H2 from '$lib/Text/H2.svelte';
-	import Textbox from '$lib/Inputs/textbox.svelte';
 
 	let menuToggle: boolean = false;
-	let aboutDialog: boolean = false;
-	let projectsDialog: boolean = false;
 
 	export let data;
 
@@ -76,26 +69,25 @@
 			justifycontent="end"
 			dark={$dark}
 		>
-			<ButtonPrimary
+			<ButtonHover
+				dark={$dark}
 				on:click={() => {
 					window.location.href = '/';
-				}}>Home</ButtonPrimary
+				}}>Home</ButtonHover
 			>
-			<ButtonPrimary
+			<ButtonHover
+				dark={$dark}
+				margin="0 10px 0 0"
 				on:click={() => {
-					aboutDialog = !aboutDialog;
-				}}>About</ButtonPrimary
-			>
-			<ButtonPrimary
-				on:click={() => {
-					projectsDialog = !projectsDialog;
-				}}>Projects</ButtonPrimary
+					window.location.href = '/projects';
+				}}>Projects</ButtonHover
 			>
 			{#if $dark}
 				<Row
 					on:click={toggleDark}
 					alignitems="center"
-					minwidth="fit-content"
+					minwidth="25px"
+					maxwidth="25px"
 					cursor="pointer"
 					grow="0"
 					dark={$dark}
@@ -106,7 +98,8 @@
 				<Row
 					on:click={toggleDark}
 					alignitems="center"
-					minwidth="fit-content"
+					minwidth="25px"
+					maxwidth="25px"
 					cursor="pointer"
 					grow="0"
 					dark={$dark}
@@ -150,7 +143,8 @@
 				<Row
 					on:click={toggleDark}
 					alignitems="center"
-					minwidth="fit-content"
+					minwidth="20px"
+					maxwidth="20px"
 					cursor="pointer"
 					grow="0"
 					dark={$dark}
@@ -161,7 +155,8 @@
 				<Row
 					on:click={toggleDark}
 					alignitems="center"
-					minwidth="fit-content"
+					minwidth="20px"
+					maxwidth="20px"
 					cursor="pointer"
 					grow="0"
 					dark={$dark}
@@ -190,20 +185,7 @@
 				background="var(--primary)"
 				on:click={() => {
 					window.location.href = '/';
-				}}><P color="var(--darktext)">Home</P></Row
-			>
-			<Row
-				alignitems="center"
-				justifycontent="center"
-				minwidth="100%"
-				borderradius="5px"
-				minheight="40px"
-				margin="0 0 0 0"
-				cursor="pointer"
-				background="var(--primary)"
-				on:click={() => {
-					aboutDialog = !aboutDialog;
-				}}><P color="var(--darktext)">About</P></Row
+				}}><P textalign="center" color="var(--darktext)">Home</P></Row
 			>
 			<Row
 				alignitems="center"
@@ -215,8 +197,8 @@
 				cursor="pointer"
 				background="var(--primary)"
 				on:click={() => {
-					projectsDialog = !projectsDialog;
-				}}><P color="var(--darktext)">Projects</P></Row
+					window.location.href = '/projects';
+				}}><P textalign="center" color="var(--darktext)">Projects</P></Row
 			>
 		</Column>
 	</div>
@@ -289,251 +271,12 @@
 			<Row justifycontent="center" padding="0 0 20px 0" dark={$dark}>
 				<!-- svelte-ignore a11y-missing-attribute -->
 				<P fontsize="12px" color={$dark ? 'var(--darktext)' : 'var(--primary)'}
-					>© 2022-2024 Development by Dalton Blake</P
+					>Development by Dalton Blake</P
 				>
 			</Row>
 		</Column>
 	</Row>
 </Column>
-
-<Dialog
-	dark={$dark}
-	display={aboutDialog}
-	background={$dark ? 'rgb(40,40,40)' : 'white'}
-	overflow="auto"
->
-	<Row background={$dark ? 'rgb(40,40,40)' : 'white'} padding="20px 20px 0 20px" gap="15px">
-		<Image
-			src="/Dalton_Blake_Professional_Photo.jpg"
-			maxheight="125px"
-			maxwidth="125px"
-			borderradius="5px"
-		></Image>
-		<div class="mobile-hide">
-			<Column
-				background={$dark ? 'rgb(40,40,40)' : 'white'}
-				justifycontent="center"
-				padding="10px 20px"
-			>
-				<H2 color={$dark ? 'var(--darktext)' : 'var(--primary)'}>Dalton Blake</H2>
-				<Row background={$dark ? 'rgb(40,40,40)' : 'white'} gap="15px">
-					<Row
-						cursor="pointer"
-						on:click={() => {
-							window.location.href = 'https://bcert.me/sqalzkqmt';
-						}}
-						background={$dark ? 'rgb(40,40,40)' : 'white'}
-					>
-						<Image src="/CAL_1_Badge.png" maxheight="50px" maxwidth="50px" borderradius="5px"
-						></Image>
-					</Row>
-					<Row
-						cursor="pointer"
-						on:click={() => {
-							window.location.href = 'https://bcert.me/sendfcmxe';
-						}}
-						background={$dark ? 'rgb(40,40,40)' : 'white'}
-					>
-						<Image src="/CSD_Badge.png" maxheight="50px" maxwidth="50px" borderradius="5px"></Image>
-					</Row>
-				</Row>
-			</Column>
-		</div>
-
-		<Row
-			on:click={() => {
-				aboutDialog = !aboutDialog;
-			}}
-			background={$dark ? 'rgb(40,40,40)' : 'white'}
-			justifycontent="end"
-		>
-			<ButtonPrimary>Close</ButtonPrimary>
-		</Row>
-	</Row>
-
-	<div class="mobile-show">
-		<Row
-			background={$dark ? 'rgb(40,40,40)' : 'white'}
-			padding="0 20px"
-			alignitems="center"
-			gap="15px"
-		>
-			<H2 color={$dark ? 'var(--darktext)' : 'var(--primary)'}>Dalton Blake</H2>
-			<Row background={$dark ? 'rgb(40,40,40)' : 'white'} gap="15px">
-				<Row
-					grow="0"
-					cursor="pointer"
-					on:click={() => {
-						window.location.href = 'https://bcert.me/sqalzkqmt';
-					}}
-					background={$dark ? 'rgb(40,40,40)' : 'white'}
-				>
-					<Image src="/CAL_1_Badge.png" maxheight="50px" maxwidth="50px" borderradius="5px"></Image>
-				</Row>
-				<Row
-					grow="0"
-					cursor="pointer"
-					on:click={() => {
-						window.location.href = 'https://bcert.me/sendfcmxe';
-					}}
-					background={$dark ? 'rgb(40,40,40)' : 'white'}
-				>
-					<Image src="/CSD_Badge.png" maxheight="50px" maxwidth="50px" borderradius="5px"></Image>
-				</Row>
-			</Row>
-		</Row>
-	</div>
-
-	<Row
-		background={$dark ? 'rgb(40,40,40)' : 'white'}
-		margin="0 0 0 0"
-		padding="0 20px 0 20px"
-		maxwidth="750px"
-	>
-		<P color={$dark ? 'var(--darktext)' : 'var(--primary)'} textalign="justify"
-			>Technically minded and detail-oriented professional with dynamic experience in designing and
-			executing innovative software solutions. Proficient in utilizing C#, TypeScript, SQL, and
-			PostgreSQL, managing SEO, implementing custom application features, and UI/UX design.</P
-		>
-	</Row>
-
-	<Row
-		background={$dark ? 'rgb(40,40,40)' : 'white'}
-		padding="0 20px 20px 20px"
-		gap="15px"
-		wrap="wrap"
-	>
-		<Column
-			grow="1"
-			minwidth="275px"
-			background="var(--primary)"
-			borderradius="5px"
-			overflowx="hidden"
-			overflowy="hidden"
-			padding="15px"
-			gap="15px"
-		>
-			<Row background="var(--primary)" padding="0 10px" minwidth="calc(100% - 20px)">
-				<P fontweight="600" color="var(--darktext)" textalign="center"
-					>4.33 Years Professional Experience</P
-				>
-			</Row>
-			<div style="background: var(--darktext); min-height: 1px; min-width: 100%;"></div>
-			<Column background="var(--primary)" gap="5px" padding="0 10px">
-				<P color="var(--darktext)"
-					>Software Engineer: <span style="font-weight: 600;">&nbsp;&nbsp;2 Years</span></P
-				>
-				<P color="var(--darktext)"
-					>Software Developer: <span style="font-weight: 600;">&nbsp;&nbsp;2 Years</span></P
-				>
-				<P color="var(--darktext)"
-					>Data Quality: <span style="font-weight: 600;">&nbsp;&nbsp;4 Months</span></P
-				>
-			</Column>
-		</Column>
-
-		<Column
-			minwidth="275px"
-			background="var(--primary)"
-			borderradius="5px"
-			overflowx="hidden"
-			overflowy="hidden"
-			padding="15px"
-			gap="15px"
-		>
-			<Row background="var(--primary)" padding="0 10px" minwidth="calc(100% - 20px)">
-				<P fontweight="600" color="var(--darktext)" textalign="center">6 Certifications</P>
-			</Row>
-			<div style="background: var(--darktext); min-height: 1px; min-width: 100%;"></div>
-			<Column background="var(--primary)" gap="5px" padding="0 10px">
-				<P color="var(--darktext)">Certified Agile Leader® 1</P>
-				<P color="var(--darktext)">Certified Scrum Developer®</P>
-				<P color="var(--darktext)">Relational Database</P>
-				<P color="var(--darktext)">Foundational C# with Microsoft</P>
-				<P color="var(--darktext)">JavaScript Algorithms & Data Structures (Beta)</P>
-				<P color="var(--darktext)">Responsive Web Design</P>
-			</Column>
-		</Column>
-	</Row>
-</Dialog>
-
-<Dialog dark={$dark} display={projectsDialog} background={$dark ? 'rgb(40,40,40)' : 'white'}>
-	<Row background={$dark ? 'rgb(40,40,40)' : 'white'} padding="20px 20px 0 20px" gap="25px">
-		<div style="max-width: 750px !important; width: 100vw;">
-			<Textbox
-				dark={$dark}
-				id="searchProject"
-				name="searchProject"
-				placeholder="Search for a project"
-			></Textbox>
-		</div>
-		<Row
-			grow="0"
-			on:click={() => {
-				projectsDialog = !projectsDialog;
-			}}
-			background={$dark ? 'rgb(40,40,40)' : 'white'}
-			justifycontent="end"
-		>
-			<ButtonPrimary>Close</ButtonPrimary>
-		</Row>
-	</Row>
-
-	<Row background={$dark ? 'rgb(40,40,40)' : 'white'} padding="0 20px 20px 20px">
-		<Column
-			maxwidth="fit-content"
-			background={$dark ? 'rgb(40,40,40)' : 'white'}
-			borderradius="5px"
-			border="solid 2px var(--primary)"
-			overflowx="hidden"
-			overflowy="hidden"
-			gap="10px"
-			cursor="pointer"
-			on:click={() => {
-				window.location.href = '/ui-components';
-			}}
-		>
-			<Row background={$dark ? 'rgb(40,40,40)' : 'white'} minwidth="100%" cursor="pointer">
-				<Image src="/UI_Components.png" maxheight="100px"></Image>
-			</Row>
-			<Row background={$dark ? 'rgb(40,40,40)' : 'white'} padding="0 10px" cursor="pointer">
-				<P
-					color={$dark ? 'var(--darktext)' : 'var(--primary)'}
-					fontsize="18px"
-					textdecoration="underline">UI Components</P
-				>
-			</Row>
-			<Row
-				background={$dark ? 'rgb(40,40,40)' : 'white'}
-				padding="0 10px 10px 10px"
-				cursor="pointer"
-			>
-				<P color={$dark ? 'var(--darktext)' : 'var(--primary)'} fontsize="14px"
-					>A set of UI Components for SvelteKit.</P
-				>
-			</Row>
-			<Row
-				background={$dark ? 'rgb(40,40,40)' : 'white'}
-				padding="0 10px 10px 10px"
-				cursor="pointer"
-				gap="10px"
-			>
-				<Row background="var(--primary)" padding="5px" borderradius="5px">
-					<P color={$dark ? 'var(--darktext)' : 'var(--darktext)'} fontsize="12px">SvelteKit</P>
-				</Row>
-				<Row background="var(--primary)" padding="5px" borderradius="5px">
-					<P color={$dark ? 'var(--darktext)' : 'var(--darktext)'} fontsize="12px">HTML</P>
-				</Row>
-				<Row background="var(--primary)" padding="5px" borderradius="5px">
-					<P color={$dark ? 'var(--darktext)' : 'var(--darktext)'} fontsize="12px">CSS</P>
-				</Row>
-				<Row background="var(--primary)" padding="5px" borderradius="5px">
-					<P color={$dark ? 'var(--darktext)' : 'var(--darktext)'} fontsize="12px">UI</P>
-				</Row>
-			</Row>
-		</Column>
-	</Row>
-</Dialog>
 
 <style>
 	#toggle-hamburger {

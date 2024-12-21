@@ -13,9 +13,7 @@
 
 <style>
 	p {
-		display: flex;
-
-		width: fit-content;
+		width: 100%;
 
 		padding: 0;
 		margin: 0;

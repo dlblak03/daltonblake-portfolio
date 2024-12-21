@@ -19,7 +19,10 @@
 	margin: {margin};
 	min-height: {minheight};
 
-	box-shadow: {boxshadow};
+	color: {dark ? 'var(--darktext)' : 'var(--primary)'};
+
+	background: {dark ? 'transparent' : 'transparent'};
+	border-color: {dark ? 'var(--darktext)' : 'var(--primary)'};
 "
 	class:disabled
 	class:inverse
@@ -41,15 +44,13 @@
 		padding: 0 20px;
 
 		outline: none;
-		border: none;
+		border: solid 2px;
 		border-radius: 5px;
-		background: var(--primary);
 
 		font-size: 16px;
 		font-weight: 500;
 		cursor: pointer;
-		color: var(--darktext);
 
-		transition: all 300ms;
+		transition: all 150ms;
 	}
 </style>

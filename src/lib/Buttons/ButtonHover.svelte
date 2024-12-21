@@ -1,32 +1,27 @@
 <script lang="ts">
-	export let dark = false;
-
 	export let disabled = false;
 	export let inverse = false;
+	export let dark = false;
 
 	export let width = 'fit-content';
-	export let height = '50px';
+	export let minheight = 'fit-content';
 
 	export let margin = '0 0 0 0';
 
-	export let background = 'white';
-	export let border = 'none';
-	
-	export let whitelabel = false;
-	export let primarycolor = '#540000'
+	export let boxshadow = 'rgba(0, 0, 0, 0.25) 0px 3px 3px 0px';
 </script>
 
 <button
-	class="hover-button"
+	class="primary-button {dark ? "dark" : "light"}"
 	style="
 	width: {width};
-	height: {height};
 
 	margin: {margin};
+	min-height: {minheight};
 
-	background: {dark ? whitelabel ? primarycolor : 'var(--primary)' : background};
-	border: {border};
-	color: {dark ? 'var(--darktext)' : whitelabel ? primarycolor : 'var(--primary)'}
+	color: {dark ? 'var(--darktext)' : 'var(--primary)'};
+
+	background: {dark ? 'transparent' : 'transparent'};
 "
 	class:disabled
 	class:inverse
@@ -36,7 +31,7 @@
 </button>
 
 <style>
-	.hover-button {
+	.primary-button {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -48,8 +43,9 @@
 		padding: 0 20px;
 
 		outline: none;
+		border: solid 2px;
+		border-color: transparent;
 		border-radius: 5px;
-		box-shadow: none;
 
 		font-size: 16px;
 		font-weight: 500;
@@ -58,7 +54,11 @@
 		transition: all 150ms;
 	}
 
-	.hover-button:hover {
-		box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 3px 0px;
+	.dark:hover {
+		border-color: var(--darktext) !important;
+	}
+
+	.light:hover {
+		border-color: var(--primary) !important;
 	}
 </style>
