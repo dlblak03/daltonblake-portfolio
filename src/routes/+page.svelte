@@ -9,7 +9,7 @@
 	const text = [
 		'Hello, welcome to my website.. ',
 		'Explore cool projects.. ',
-		'Or connect with me on social media.. '
+		'Or connect with me on social media. '
 	];
 	let currentTextIndex = 0;
 	let currentCharIndex = 0;

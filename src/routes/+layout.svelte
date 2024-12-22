@@ -254,6 +254,10 @@
 					/>
 				</Row>
 			</Row>
+
+			<Row maxheight="0" dark={$dark} alignitems="center" minwidth="100%" justifycontent="center">
+				<p style="font-size: 10px; padding: 5px 10px; border-radius: 5px; background: {$dark ? 'rgb(20,20,20)' : 'white'}; transition: all 150ms; color: {$dark ? 'var(--darktext)' : 'var(--primary)'}">Development by Dalton Blake</p>
+			</Row>
 		</Column>
 	</Row>
 </Column>
