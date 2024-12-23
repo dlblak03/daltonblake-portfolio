@@ -64,11 +64,42 @@
 		<Row
 			gap="15px"
 			alignitems="center"
-			padding="10px 20px 10px 20px"
-			minwidth="calc(100% - 40px)"
+			padding="10px 35px 10px 35px"
+			minwidth="calc(100% - 70px)"
 			justifycontent="end"
 			dark={$dark}
 		>
+			{#if $dark}
+				<Row
+					on:click={() => {
+						window.location.href = '/privacy-policy';
+					}}
+					alignitems="center"
+					minwidth="25px"
+					maxwidth="25px"
+					cursor="pointer"
+					grow="0"
+					dark={$dark}
+					margin="0 auto 0 0"
+				>
+					<Icon color="var(--darktext)" icon="fa-shield-halved" size="fa-xl" />
+				</Row>
+			{:else}
+				<Row
+					on:click={() => {
+						window.location.href = '/privacy-policy';
+					}}
+					alignitems="center"
+					minwidth="25px"
+					maxwidth="25px"
+					cursor="pointer"
+					grow="0"
+					dark={$dark}
+					margin="0 auto 0 0"
+				>
+					<Icon color="var(--primary)" icon="fa-shield-halved" size="fa-xl" />
+				</Row>
+			{/if}
 			<ButtonHover
 				dark={$dark}
 				on:click={() => {
@@ -114,12 +145,43 @@
 		<Row
 			gap="25px"
 			alignitems="center"
-			padding="10px 20px 10px 20px"
-			minwidth="calc(100% - 40px)"
+			padding="10px 35px 10px 35px"
+			minwidth="calc(100% - 70px)"
 			justifycontent="end"
 			dark={$dark}
 			minheight="calc(70px - 20px)"
 		>
+			{#if $dark}
+				<Row
+					on:click={() => {
+						window.location.href = '/privacy-policy';
+					}}
+					alignitems="center"
+					minwidth="25px"
+					maxwidth="25px"
+					cursor="pointer"
+					grow="0"
+					dark={$dark}
+					margin="0 auto 0 0"
+				>
+					<Icon color="var(--darktext)" icon="fa-shield-halved" size="fa-xl" />
+				</Row>
+			{:else}
+				<Row
+					on:click={() => {
+						window.location.href = '/privacy-policy';
+					}}
+					alignitems="center"
+					minwidth="25px"
+					maxwidth="25px"
+					cursor="pointer"
+					grow="0"
+					dark={$dark}
+					margin="0 auto 0 0"
+				>
+					<Icon color="var(--primary)" icon="fa-shield-halved" size="fa-xl" />
+				</Row>
+			{/if}
 			<div style="min-height: 35px; display: flex; align-items: center; justify-content: center;">
 				<input id="toggle-hamburger" type="checkbox" />
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -256,7 +318,15 @@
 			</Row>
 
 			<Row maxheight="0" dark={$dark} alignitems="center" minwidth="100%" justifycontent="center">
-				<p style="font-size: 10px; padding: 5px 10px; border-radius: 5px; background: {$dark ? 'rgb(20,20,20)' : 'white'}; transition: all 150ms; color: {$dark ? 'var(--darktext)' : 'var(--primary)'}">Development by Dalton Blake</p>
+				<p
+					style="font-size: 10px; padding: 5px 10px; border-radius: 5px; background: {$dark
+						? 'rgb(20,20,20)'
+						: 'white'}; transition: all 150ms; color: {$dark
+						? 'var(--darktext)'
+						: 'var(--primary)'}"
+				>
+					Developed by Dalton Blake
+				</p>
 			</Row>
 		</Column>
 	</Row>

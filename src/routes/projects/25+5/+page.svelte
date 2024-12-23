@@ -22,6 +22,7 @@
 
 	function updateClock(
 		hourHandOne: HTMLElement,
+		minuteHandOneInner: HTMLElement,
 		minuteHandOne: HTMLElement,
 		minuteHandTwo: HTMLElement,
 		minuteHandThree: HTMLElement
@@ -44,6 +45,7 @@
 
 						trackedWorkingTime = trackedWorkingTime + 1;
 
+						minuteHandOneInner.style.transform = `rotate(${minuteDegreesOne}deg)`;
 						minuteHandOne.style.transform = `rotate(${minuteDegreesOne}deg)`;
 						hourHandOne.style.transform = `rotate(${hourDegrees}deg)`;
 					} else {
@@ -55,6 +57,7 @@
 							(seconds / 60) * 6;
 						const hourDegrees = (hours / 12) * 360 + (minutes / 60) * 30;
 
+						minuteHandOneInner.style.transform = `rotate(${minuteDegreesOne}deg)`;
 						minuteHandOne.style.transform = `rotate(${minuteDegreesOne}deg)`;
 						minuteHandTwo.style.transform = `rotate(${minuteDegreesTwo}deg)`;
 						minuteHandThree.style.transform = `rotate(${minuteDegreesThree}deg)`;
@@ -68,6 +71,7 @@
 					if (!pause) {
 						trackedBreakTime = trackedBreakTime + 1;
 
+						minuteHandOneInner.style.transform = `rotate(${minuteDegreesOne}deg)`;
 						minuteHandOne.style.transform = `rotate(${minuteDegreesOne}deg)`;
 						minuteHandTwo.style.transform = `rotate(${minuteDegreesTwo}deg)`;
 						hourHandOne.style.transform = `rotate(${hourDegrees}deg)`;
@@ -86,6 +90,7 @@
 							(seconds / 60) * 6;
 						const hourDegrees = (hours / 12) * 360 + (minutes / 60) * 30;
 
+						minuteHandOneInner.style.transform = `rotate(${minuteDegreesOne}deg)`;
 						minuteHandOne.style.transform = `rotate(${minuteDegreesOne}deg)`;
 						minuteHandTwo.style.transform = `rotate(${minuteDegreesTwo}deg)`;
 						minuteHandThree.style.transform = `rotate(${minuteDegreesThree}deg)`;
@@ -103,6 +108,7 @@
 					trackedWorkingTime = 0;
 					trackedBreakTime = 0;
 
+					minuteHandOneInner.style.transform = `rotate(${minuteDegreesOne}deg)`;
 					minuteHandOne.style.transform = `rotate(${minuteDegreesOne}deg)`;
 					minuteHandTwo.style.transform = `rotate(${minuteDegreesTwo}deg)`;
 					minuteHandThree.style.transform = `rotate(${minuteDegreesThree}deg)`;
@@ -120,6 +126,7 @@
 					((minutes + workingTime + breakTime) / 60) * 360 + (seconds / 60) * 6;
 				const hourDegrees = (hours / 12) * 360 + (minutes / 60) * 30;
 
+				minuteHandOneInner.style.transform = `rotate(${minuteDegreesOne}deg)`;
 				minuteHandOne.style.transform = `rotate(${minuteDegreesOne}deg)`;
 				minuteHandTwo.style.transform = `rotate(${minuteDegreesTwo}deg)`;
 				minuteHandThree.style.transform = `rotate(${minuteDegreesThree}deg)`;
@@ -148,16 +155,34 @@
 
 	onMount(() => {
 		const hourHandOne = document.getElementById('hourHandOne');
+		const minuteHandOneInner = document.getElementById('minuteHandOneInner');
 		const minuteHandOne = document.getElementById('minuteHandOne');
 		const minuteHandTwo = document.getElementById('minuteHandTwo');
 		const minuteHandThree = document.getElementById('minuteHandThree');
 
-		if (hourHandOne && minuteHandOne && minuteHandTwo && minuteHandThree) {
-			setInterval(updateClock, 1000, hourHandOne, minuteHandOne, minuteHandTwo, minuteHandThree);
-			updateClock(hourHandOne, minuteHandOne, minuteHandTwo, minuteHandThree);
+		if (hourHandOne && minuteHandOneInner && minuteHandOne && minuteHandTwo && minuteHandThree) {
+			setInterval(
+				updateClock,
+				1000,
+				hourHandOne,
+				minuteHandOneInner,
+				minuteHandOne,
+				minuteHandTwo,
+				minuteHandThree
+			);
+			updateClock(hourHandOne, minuteHandOneInner, minuteHandOne, minuteHandTwo, minuteHandThree);
 		}
 	});
 </script>
+
+<svelte:head>
+	<title>Dalton Blake | 25 + 5</title>
+
+	<meta
+		name="description"
+		content="Boost your productivity with the 25+5 Method, a web tool designed to optimize work and break cycles. Track your time effectively with customizable work sessions and breaks to maintain focus and recharge throughout the day."
+	/>
+</svelte:head>
 
 <Column dark={$dark} gap="75px" minwidth="100%" maxwidth="100%">
 	<Row
@@ -191,9 +216,16 @@
 		<div class="clock {$dark ? 'dark-clock' : ''}">
 			<!-- Clock Hands -->
 			<div id="hourHandOne" class="hour-hand-outer {$dark ? 'dark-hand' : ''}"></div>
+			<div id="minuteHandOneInner" class="minute-hand-inner-one {$dark ? 'dark-hand' : ''}"></div>
 			<div id="minuteHandOne" class="minute-hand-outer-one {$dark ? 'dark-hand' : ''}"></div>
 			<div id="minuteHandTwo" class="minute-hand-outer-two {$dark ? 'dark-hand' : ''}"></div>
 			<div id="minuteHandThree" class="minute-hand-outer-three {$dark ? 'dark-hand' : ''}"></div>
+			<div class="center-circle {$dark ? 'dark-hand' : ''}">&nbsp;</div>
+
+			<!-- <svg class="time-circle-container" viewBox="0 0 100 100">
+				Dynamic Time Circle
+				<circle cx="50" cy="50" r="45" class="time-circle"></circle>
+			  </svg> -->
 
 			<!-- Clock Numbers -->
 			{#each Array.from({ length: 12 }, (_, i) => i + 1) as number, index}
@@ -406,19 +438,19 @@
 
 	@media (max-width: 768px) {
 		.title {
-			font-size: 2rem; 
+			font-size: 2rem;
 		}
 		.subtitle {
-			font-size: 1.2rem; 
+			font-size: 1.2rem;
 		}
 	}
 
 	@media (max-width: 480px) {
 		.title {
-			font-size: 1.5rem; 
+			font-size: 1.5rem;
 		}
 		.subtitle {
-			font-size: 1rem; 
+			font-size: 1rem;
 		}
 	}
 
@@ -438,6 +470,24 @@
 	.dark-clock {
 		background: var(--primary);
 		border-color: var(--darktext);
+	}
+
+	.time-circle-container {
+		position: absolute;
+		top: -15px;
+		left: -15px;
+		height: calc(100% + 30px);
+		width: calc(100% + 30px);
+	}
+
+	.time-circle {
+		fill: none;
+		stroke: #00aaff;
+		stroke-width: 10;
+		stroke-dasharray: 283; /* Circumference of the circle (2 * π * r) */
+		stroke-dashoffset: 300; /* Initially hide the circle */
+		transition: stroke-dashoffset 0.3s ease;
+		z-index: 8;
 	}
 
 	.number {
@@ -473,13 +523,13 @@
 
 	@media (max-width: 768px) {
 		.interactive-sentence {
-			font-size: 12px; 
+			font-size: 12px;
 		}
 	}
 
 	@media (max-width: 480px) {
 		.interactive-sentence {
-			font-size: 12px; 
+			font-size: 12px;
 		}
 	}
 
@@ -516,6 +566,7 @@
 
 	/* === Clock Hands Styling === */
 	.hour-hand-outer,
+	.minute-hand-inner-one,
 	.minute-hand-outer-one,
 	.minute-hand-outer-two,
 	.minute-hand-outer-three {
@@ -528,11 +579,23 @@
 	}
 
 	.hour-hand-outer {
-		height: 120px;
-		top: 4px;
+		height: 70px;
+		top: 55px;
 		left: calc(50% - 2px);
 		transform: rotate(90deg);
 		z-index: 6;
+	}
+
+	.center-circle {
+		position: absolute;
+		top: calc(50% - 5px);
+		left: calc(50% - 5px);
+		border-radius: 50%;
+		height: 10px;
+		width: 10px;
+		background: var(--primary);
+		z-index: 6;
+		transition: all 150ms;
 	}
 
 	.dark-hand {
@@ -548,23 +611,36 @@
 		transform: rotate(0deg);
 	}
 
+	.minute-hand-inner-one {
+		height: 115px;
+		top: 9px;
+		left: calc(50% - 2px);
+		transform: rotate(0deg);
+		z-index: 6;
+	}
+
 	.minute-hand-outer-three {
 		z-index: 3;
 	}
 
 	/* === Clock Face Overlay === */
 	.hide-outer-clocks {
-		position: relative;
+		position: absolute;
 		width: 100%;
 		height: 100%;
 		background: white;
 		border-radius: 50%;
 		z-index: 4;
 		transition: all 150ms;
+		top: -5px;
+		left: -5px;
+		border: 5px solid;
+		border-color: var(--primary);
 	}
 
 	.dark-hide {
 		background: var(--primary);
+		border-color: var(--darktext);
 	}
 
 	/* === Button Styling === */
@@ -609,9 +685,9 @@
 		border-spacing: 0;
 	}
 
-    .dark-table {
-        background-color: #333;
-    }
+	.dark-table {
+		background-color: #333;
+	}
 
 	.stats-table th,
 	.stats-table td {
@@ -631,7 +707,7 @@
 		color: #333;
 	}
 
-    .dark-table td {
+	.dark-table td {
 		border-radius: 5px;
 		color: var(--darktext);
 	}

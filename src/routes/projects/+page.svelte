@@ -8,13 +8,22 @@
 			name: '25 + 5 Method',
 			description:
 				'The 25+5 Method Web Tool helps you stay productive with adjustable work intervals. Set your preferred focus time (default 25 minutes) and break time (default 5 minutes), and track your progress easily. This tool encourages focus and rest, boosting productivity throughout the day.',
-			tags: ['HTML', 'CSS', 'TypeScript', 'SvelteKit'],
+			tags: ['HTML', 'CSS', 'TypeScript', 'Tools'],
 			link: '/projects/25+5'
 		}
 	];
 
 	onMount(() => {});
 </script>
+
+<svelte:head>
+	<title>Dalton Blake | Projects</title>
+
+	<meta
+		name="description"
+		content="Explore a range of innovative projects by Dalton Blake, showcasing modern web development skills and creative solutions. Discover tools and applications designed to enhance productivity and user experience through cutting-edge technologies."
+	/>
+</svelte:head>
 
 <Column dark={$dark} minwidth="100%" maxwidth="100%" alignitems="center">
 	<div class="portfolio-container">
@@ -28,7 +37,7 @@
 							<span>{tag}</span>
 						{/each}
 					</div>
-					<a href={project.link} target="_blank">View Project</a>
+					<a href={project.link}>View Project</a>
 				</div>
 			{/each}
 		</div>

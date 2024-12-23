@@ -17,7 +17,7 @@
 	const typingSpeed = 100; // Speed of typing (ms)
 	const deletingSpeed = 75; // Speed of deleting (ms)
 	const pauseBetweenTexts = 2000; // Pause before typing new text
-	let textVariable = ""
+	let textVariable = '';
 
 	function typeText() {
 		const currentText = text[currentTextIndex];
@@ -52,15 +52,19 @@
 
 	<meta
 		name="description"
-		content="Technically minded and detail-oriented professional with dynamic experience in designing and executing innovative software solutions.
-        Adept at providing strategic guidance to clients to optimise application usability and functionality."
+		content="Explore the development projects of Dalton Blake, showcasing innovative solutions built with modern technologies. Discover the portfolio of a skilled developer dedicated to creating impactful, user-centered digital experiences."
 	/>
 </svelte:head>
 
 <Column justifycontent="center" alignitems="center" minwidth="100%" dark={$dark}>
 	<Row grow="0" dark={$dark} justifycontent="center" alignitems="center" padding="0 20px">
 		<div id="typing-container">
-			<span style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'}; letter-spacing: 0.2rem; text-align: center;" id="typing-text">{textVariable}</span>
+			<span
+				style="color: {$dark
+					? 'var(--darktext)'
+					: 'var(--primary)'}; letter-spacing: 0.2rem; text-align: center;"
+				id="typing-text">{textVariable}</span
+			>
 			<span style="color: {$dark ? 'var(--darktext)' : 'var(--primary)'};" id="cursor">|</span>
 		</div>
 	</Row>
