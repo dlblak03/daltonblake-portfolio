@@ -154,6 +154,7 @@
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 20px;
+		width: calc(100% - 40px);
 	}
 
 	.dark-content * {
@@ -194,6 +195,7 @@
 	li {
 		color: var(--primary);
 		transition: all 150ms;
+		font-size: 1em;
 	}
 
 	/* Responsive styling */
@@ -217,6 +219,12 @@
 		p {
 			font-size: 0.9em;
 		}
+
+		li {
+			color: var(--primary);
+			transition: all 150ms;
+			font-size: 0.9em;
+		}
 	}
 
 	@media (max-width: 480px) {
@@ -229,6 +237,12 @@
 		}
 
 		p {
+			font-size: 0.85em;
+		}
+
+		li {
+			color: var(--primary);
+			transition: all 150ms;
 			font-size: 0.85em;
 		}
 	}
