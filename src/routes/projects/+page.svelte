@@ -10,6 +10,13 @@
 				'The 25+5 Method Web Tool helps you stay productive with adjustable work intervals. Set your preferred focus time (default 25 minutes) and break time (default 5 minutes), and track your progress easily. This tool encourages focus and rest, boosting productivity throughout the day.',
 			tags: ['HTML', 'CSS', 'TypeScript', 'Tools'],
 			link: '/projects/25+5'
+		},
+		{
+			name: 'Financial Balance: Track, Manage, and Grow',
+			description:
+				'Stay on top of your budget and income for a balanced financial life',
+			tags: ['HTML', 'CSS', 'TypeScript', 'Prototype'],
+			link: '/projects/financial-balance'
 		}
 	];
 
@@ -97,6 +104,7 @@
 		color: var(--primary);
 		margin-bottom: 10px;
 		margin-top: 10px;
+		transition: all 150ms;
 	}
 
 	.dark-card h3 {
@@ -108,6 +116,7 @@
 		font-size: 1rem;
 		color: #666;
 		margin-bottom: 10px;
+		transition: all 150ms;
 	}
 
 	.dark-card p {
@@ -122,6 +131,7 @@
 		white-space: pre-wrap;
 		display: flex;
 		flex-wrap: wrap;
+		transition: all 150ms;
 	}
 
 	.project-card .tags span {
@@ -130,6 +140,7 @@
 		border-radius: 5px;
 		font-size: 0.9rem;
 		margin: 5px;
+		transition: all 150ms;
 	}
 
 	/* Link */
@@ -138,6 +149,7 @@
 		color: var(--primary);
 		text-decoration: none;
 		font-weight: bold;
+		transition: all 150ms;
 	}
 
 	.dark-card a {
@@ -146,6 +158,7 @@
 
 	.project-card a:hover {
 		text-decoration: underline;
+		transition: all 150ms;
 	}
 
 	@media (max-width: 768px) {
