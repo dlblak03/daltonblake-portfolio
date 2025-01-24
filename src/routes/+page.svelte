@@ -63,7 +63,7 @@
 				style="color: {$dark
 					? 'var(--darktext)'
 					: 'var(--primary)'}; letter-spacing: 0.2rem; text-align: center;"
-				id="typing-text">Heyo, I'm Dalton. Learning and building products is my passion.</span
+				id="typing-text">Heyo, I'm Dalton. Learning and creating innovative products is my passion.</span
 			>
 		</div>
 	</Row>
